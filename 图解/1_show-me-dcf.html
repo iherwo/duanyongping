@@ -70,6 +70,8 @@
   .ctrl{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:18px 0}
   .field label{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:4px}
   .field output{font-weight:800;color:var(--brand)}
+  .field label .hint{color:var(--ink-3);font-weight:400;font-size:11.5px;margin-left:5px}
+  .field label output.lock{color:var(--gold)}
   input[type=range]{width:100%;accent-color:var(--brand);height:22px}
   @media(max-width:560px){.ctrl{grid-template-columns:1fr}}
   .resultbox{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
@@ -88,6 +90,18 @@
   .bfill.pv{background:var(--brand)}
   .bnote{font-size:12px;color:var(--ink-3);display:flex;gap:14px;margin-top:8px}
   .dual-legend{font-size:12.5px;color:var(--ink-2);margin-top:4px}
+  .term-line{background:#faf8f4;border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-top:14px;font-size:13px;color:var(--ink-2);line-height:1.85}
+  .term-line b{color:var(--ink)}
+  .term-line .warn{color:var(--gold);font-weight:700}
+  .sens{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .sens table{width:100%;border-collapse:collapse;font-size:12.5px}
+  .sens th,.sens td{padding:7px 9px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+  .sens td{white-space:nowrap}
+  .sens th:first-child,.sens td:first-child{text-align:left}
+  .sens thead th{background:#faf8f4;color:var(--ink-3);font-weight:600;font-size:11.5px}
+  .sens tbody tr:last-child td{border-bottom:none}
+  .sens tr.on{background:var(--brand-soft)}
+  .sens tr.on td{font-weight:800;color:var(--brand)}
 
   /* list checks */
   ul.points{list-style:none;margin-top:6px}
@@ -172,12 +186,12 @@
     <div class="sec-head"><span class="sec-num">03</span><h2>把直觉写成公式</h2><span class="sec-sub">DCF = Discounted Cash Flow</span></div>
     <div class="formula">
       <div class="f-main">
-        价值 V = <span class="c">CF₁</span>/(1+<span class="d">r</span>) + <span class="c">CF₂</span>/(1+<span class="d">r</span>)² + … + <span class="c">CFₙ</span>/(1+<span class="d">r</span>)ⁿ + <span class="d">终值</span>
+        价值 V = <span class="c">CF₁</span>/(1+<span class="d">r</span>) + <span class="c">CF₂</span>/(1+<span class="d">r</span>)² + … + <span class="c">CFₙ</span>/(1+<span class="d">r</span>)ⁿ + <span class="d">终值</span>/(1+<span class="d">r</span>)ⁿ
       </div>
       <div class="f-legend">
         <span><i class="c" style="color:#e5a75b">CF</i>= 每年的自由现金流</span>
         <span><i class="d" style="color:#7fd1c0">r</i>= 折现率(风险+时间成本)</span>
-        <span>终值 = 第 n 年后的全部价值</span>
+        <span>终值 = CFₙ ×(1+g<sub>∞</sub>) ÷ (r − g<sub>∞</sub>),仍需折现</span>
       </div>
     </div>
     <div class="grid2">
@@ -195,14 +209,20 @@
         <div class="field"><label>现金流年增长 <output id="oG">5</output> %</label><input type="range" id="iG" min="0" max="20" step="1" value="5"></div>
         <div class="field"><label>预测年数 <output id="oN">10</output> 年</label><input type="range" id="iN" min="5" max="20" step="1" value="10"></div>
         <div class="field"><label>折现率 r <output id="oR">10</output> %</label><input type="range" id="iR" min="4" max="20" step="1" value="10"></div>
+        <div class="field"><label><span>永续增长率 g<sub>∞</sub></span><span class="hint">第 N 年后 · 永久</span><output id="oGInf">0</output> %</label><input type="range" id="iGInf" min="0" max="6" step="0.5" value="0"></div>
       </div>
+      <p class="note" style="margin:0 0 14px">g 只管预测期内的 N 年;<b>g<sub>∞</sub> 管第 N 年之后的无限期</b>。终值占比通常由 g<sub>∞</sub> 主导,所以它必须是你能看见、能调的参数——原先它被写死在代码里,这是本次修正的核心。</p>
       <div class="resultbox">
         <div class="stat"><div class="k">各年现金流名义总额</div><div class="v" id="vNominal">—</div></div>
-        <div class="stat alt"><div class="k">折现后的价值(内在价值)</div><div class="v" id="vPV">—</div></div>
-        <div class="stat alt"><div class="k">打折幅度</div><div class="v" id="vDiscount" style="font-size:17px;padding-top:6px">—</div></div>
+        <div class="stat alt"><div class="k">内在价值 = 预测期现值 + 终值现值</div><div class="v" id="vPV">—</div></div>
+        <div class="stat"><div class="k">预测期现金流折回今天</div><div class="v" id="vDiscount" style="font-size:17px;padding-top:6px">—</div></div>
+        <div class="stat alt"><div class="k">终值占内在价值</div><div class="v" id="vTerm" style="font-size:17px;padding-top:6px">—</div></div>
       </div>
+      <div class="term-line" id="vTermDetail">—</div>
+      <div class="sens" id="sens"></div>
       <div class="bar-chart" id="bars"></div>
-      <div class="dual-legend"><i class="swatch" style="background:var(--teal)"></i>当年名义现金流&nbsp;&nbsp;<i class="swatch" style="background:var(--brand)"></i>折回今天的现值</div>
+      <div class="dual-legend"><i class="swatch" style="background:var(--teal)"></i>被折现「吃掉」的部分&nbsp;&nbsp;<i class="swatch" style="background:var(--brand)"></i>折回今天的现值(真正算数的部分)&nbsp;&nbsp;·&nbsp;&nbsp;条形全长 = 当年名义现金流,右列数字 = 该年现值(万元)</div>
+      <p class="note">条形全长是那年「名义」到手的钱,<b>深色覆盖的那一段才是折回今天真正算数的部分</b>,右侧数字就是它;空出来的浅色不是没收到,而是<b>因为要等、因为有风险,被折现打折打掉了</b>。折现率越高,浅色越长。上排「预测期现金流折回今天」就是这个比例的汇总。终值(预测期之外的永续经营价值)不进这张图,它单独计入上方的「内在价值」——所以内在价值通常远大于各年现值之和,这是 DCF 的常态。终值 = 第 N 年现金流 ×(1+g<sub>∞</sub>)÷(r−g<sub>∞</sub>),<b>r−g<sub>∞</sub> 这个差值在分母上,所以 g<sub>∞</sub> 每上调 1 个百分点,终值会成倍放大</b>——这正是它必须被摆在台面上的原因。</p>
     </div>
   </section>
 
@@ -241,37 +261,77 @@
 <script>
 (function(){
   const $=id=>document.getElementById(id);
-  const iCF=$('iCF'),iG=$('iG'),iN=$('iN'),iR=$('iR');
+  const iCF=$('iCF'),iG=$('iG'),iN=$('iN'),iR=$('iR'),iGInf=$('iGInf');
   const fmt=n=>Math.round(n).toLocaleString('zh-CN');
   function render(){
-    const base=+iCF.value,g=+iG.value/100,N=+iN.value,r=+iR.value/100;
+    const base=+iCF.value,g=+iG.value/100,N=+iN.value,r=+iR.value/100,rPct=+iR.value;
     $('oCF').textContent=iCF.value;$('oG').textContent=iG.value;
     $('oN').textContent=iN.value;$('oR').textContent=iR.value;
-    let nominal=0,pv=0,rows=[];
+
+    // 永续增长率必须严格小于折现率,否则戈登模型无解 —— 上限跟着 r 走,从源头杜绝非法状态
+    const gInfMax=Math.max(0,rPct-0.5);
+    iGInf.max=String(gInfMax);
+    if(+iGInf.value>gInfMax) iGInf.value=String(gInfMax);
+    const gInfPct=+iGInf.value, gInf=gInfPct/100;
+    const capped=gInfMax<6;
+    $('oGInf').textContent=String(gInfPct);
+    $('oGInf').className=capped?'lock':'';
+
+    let sumNominal=0,sumPvRows=0;
+    const rows=[];
     for(let t=1;t<=N;t++){
       const cf=base*Math.pow(1+g,t-1);
-      const p=cf/Math.pow(1+r,t);
-      nominal+=cf;pv+=p;
-      rows.push({t,cf,p});
+      const pv=cf/Math.pow(1+r,t);
+      sumNominal+=cf;sumPvRows+=pv;
+      rows.push({t,cf,pv});
     }
-    // 永续终值(简化:Gordon,永续增速取 g 的一半,并夹在安全区间)
-    const gTerm=Math.min(Math.max(g*0.5,r-0.03),r*0.7);
-    const tv=rows.length&&r>gTerm? rows[rows.length-1].cf*(1+gTerm)/(r-gTerm)/Math.pow(1+r,N):0;
-    if(tv>0&&isFinite(tv)) pv+=tv;
-    const totalNominal=nominal;
-    $('vNominal').textContent='¥'+fmt(totalNominal)+' 万';
-    $('vPV').textContent='¥'+fmt(pv)+' 万';
-    const disc=pv/totalNominal*100;
-    $('vDiscount').textContent='只看得到 '+Math.round(disc)+'%'+(tv>0?'(含终值)':'');
+    const lastCF=rows[rows.length-1].cf;
+    // 终值:戈登永续模型。g∞ 由滑条显式给定,不再有任何隐式假设。
+    const tvRaw=lastCF*(1+gInf)/(r-gInf);   // 第 N 年末,未折现
+    const tv=tvRaw/Math.pow(1+r,N);         // 折回今天
+    const tvOk=isFinite(tv)&&tv>0&&r>gInf;
+    const pvTotal=sumPvRows+(tvOk?tv:0);
+    const mult=(1+gInf)/(r-gInf);           // 终值隐含退出倍数
+    const termShare=(tvOk&&pvTotal>0)? tv/pvTotal*100 : NaN;
+
+    $('vNominal').textContent='¥'+fmt(sumNominal)+' 万';
+    $('vPV').textContent='¥'+fmt(pvTotal)+' 万';
+    // 打折幅度:只看预测期内,名义总额折回今天还剩多少(终值是预测期之外的加项,不能混进来算)
+    const keep=sumNominal>0? sumPvRows/sumNominal*100 : 0;
+    $('vDiscount').textContent='只剩 '+Math.round(keep)+'%';
+    $('vTerm').textContent=isFinite(termShare)? Math.round(termShare)+'%' : '—';
+
+    $('vTermDetail').innerHTML=
+      '终值 = 第 '+N+' 年现金流 ¥'+fmt(lastCF)+' 万 ×(1+'+gInfPct+'%) ÷ ('+rPct+'% − '+gInfPct+'%) = <b>¥'+fmt(tvRaw)+' 万</b>(第 '+N+' 年末),'+
+      '再 ÷(1+'+rPct+'%)<sup>'+N+'</sup> 折回今天 = <b>¥'+fmt(tv)+' 万</b>,占内在价值 <b>'+(isFinite(termShare)?Math.round(termShare)+'%':'—')+'</b>。'+
+      '隐含退出倍数 <b>'+mult.toFixed(1)+'×</b>(终值 ÷ 第 '+N+' 年现金流)。<br>'+
+      (gInfPct===0
+        ? 'g<sub>∞</sub> = 0 时终值是一个<b>零增长永续年金</b>,倍数恒等于 1/r = '+(1/r).toFixed(1)+'×。'
+        : '倍数 =(1+g<sub>∞</sub>) ÷ (r−g<sub>∞</sub>),分母只剩 <b>'+(rPct-gInfPct).toFixed(1)+' 个百分点</b>——<span class="warn">g<sub>∞</sub> 越逼近 r,终值越失控</span>。')
+      +(capped? '<br><span class="warn">⚠ r = '+rPct+'% 时,g<sub>∞</sub> 滑条上限已自动压到 '+gInfMax+'%</span>:永续增长率必须低于折现率,否则戈登模型无解。':'');
+
+    // 终值敏感度:把"没写在界面上的假设"直接排开给你看
+    const tvOf=gi=>lastCF*(1+gi)/(r-gi)/Math.pow(1+r,N);
+    const cands=[0,1,2,3,4,5,6].filter(v=>v<=gInfMax+1e-9);
+    if(cands.indexOf(gInfPct)<0 && gInfPct<=gInfMax+1e-9) cands.push(gInfPct);
+    cands.sort((a,b)=>a-b);
+    let sh='<table><thead><tr><th>永续增长率</th><th>隐含倍数</th><th>终值现值(万元)</th><th>占内在价值</th></tr></thead><tbody>';
+    cands.forEach(v=>{
+      const gi=v/100,m=(1+gi)/(r-gi),t=tvOf(gi),tt=sumPvRows+t;
+      sh+='<tr'+(v===gInfPct?' class="on"':'')+'><td>'+v+'%</td><td>'+m.toFixed(1)+'×</td><td>'+fmt(t)+'</td><td>'+(tt>0?Math.round(t/tt*100)+'%':'—')+'</td></tr>';
+    });
+    $('sens').innerHTML=sh+'</tbody></table>';
+
     // bars
     const max=Math.max(...rows.map(x=>x.cf));
     const chart=$('bars');
     let html='';
-    const scale=t=>Math.max(2,t/max*100);
+    const scale=v=>v/max*100;
     rows.forEach(x=>{
-      const pct=scale(x.cf),ppct=Math.max(1,scale(x.pv));
+      const pct=Math.max(2,scale(x.cf)).toFixed(2);
+      const ppct=Math.max(1,scale(x.pv)).toFixed(2);
       html+=`<div class="brow"><div class="yr">第${x.t}年</div>
-        <div class="btrack" title="名义 ${fmt(x.cf)} 万">
+        <div class="btrack" title="名义 ${fmt(x.cf)} 万 · 现值 ${fmt(x.pv)} 万">
           <div class="bfill" style="width:${pct}%"></div>
           <div class="bfill pv" style="width:${ppct}%"></div>
         </div>
@@ -279,7 +339,7 @@
     });
     chart.innerHTML=html;
   }
-  [iCF,iG,iN,iR].forEach(el=>el.addEventListener('input',render));
+  [iCF,iG,iN,iR,iGInf].forEach(el=>el.addEventListener('input',render));
   render();
 })();
 </script>
