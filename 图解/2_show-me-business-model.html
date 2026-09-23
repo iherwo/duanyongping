@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商业模式：投资的第一过滤器 · 段永平</title>
+<style>
+  :root{
+    --ink:#1a2233; --ink-2:#4a5568; --ink-3:#8a94a6;
+    --bg:#f7f5f0; --card:#ffffff; --line:#e6e1d8;
+    --brand:#b3562e; --brand-soft:#f5e3d9;
+    --gold:#c8963e; --teal:#2f6b5f; --teal-soft:#e2eee9;
+    --blue:#2b5ea8; --blue-soft:#e4ecf8;
+    --coral:#c05a32; --coral-soft:#faece7;
+    --amber:#8a6413; --amber-soft:#fdf4e3;
+    --red:#a83228; --red-soft:#fdeceb;
+    --green:#2e7d4f; --green-soft:#e7f2ea;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:36px 8px 12px}
+  .tag{display:inline-block;font-size:12.5px;letter-spacing:.12em;color:var(--brand);border:1px solid var(--brand);
+    border-radius:999px;padding:3px 12px;font-weight:600;margin-bottom:18px;background:#fff}
+  h1{font-size:clamp(24px,4.4vw,36px);line-height:1.3;font-weight:800;letter-spacing:-.01em}
+  h1 .hl{color:var(--teal)}
+  .lede{margin-top:14px;font-size:16.5px;color:var(--ink-2);max-width:700px}
+  .lede b{color:var(--ink)}
+  .src{margin-top:16px;font-size:12.5px;color:var(--ink-3)}
+  .src a{color:var(--ink-3);text-decoration:none;border-bottom:1px dotted var(--ink-3)}
+
+  /* ---------- shell ---------- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+    box-shadow:0 1px 2px rgba(26,34,51,.04)}
+  section{margin-top:44px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:0 4px 16px;flex-wrap:wrap}
+  .sec-num{font-size:13px;font-weight:800;color:var(--gold);letter-spacing:.1em}
+  .sec-head h2{font-size:clamp(18px,3.2vw,20px);font-weight:750;letter-spacing:-.01em}
+  .sec-sub{font-size:13.5px;color:var(--ink-3);margin-left:auto}
+  @media(max-width:640px){.sec-sub{margin-left:0;width:100%}}
+
+  p.para{color:var(--ink-2);font-size:15px;margin-bottom:12px}
+  p.para:last-child{margin-bottom:0}
+  p.para b{color:var(--ink)}
+  .note{font-size:13.5px;color:var(--ink-3);margin-top:14px;line-height:1.75}
+  .note b{color:var(--ink-2)}
+
+  /* ---------- quote ---------- */
+  .quote{background:var(--card);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:20px 22px;margin:16px 0}
+  .quote p{font-size:16px;color:var(--ink);font-weight:500;line-height:1.75}
+  .quote .who{margin-top:8px;font-size:13px;color:var(--ink-3);font-weight:400}
+  .quote.sm p{font-size:15px}
+
+  /* ---------- callout ---------- */
+  .callout{background:var(--blue-soft);border:1px solid #cddcf0;border-radius:14px;padding:18px 20px;margin-top:16px}
+  .callout h5{font-size:14px;color:var(--blue);margin-bottom:6px}
+  .callout p{font-size:14px;color:#3c4d63}
+  .callout.warn{background:var(--red-soft);border-color:#f2cdc9}
+  .callout.warn h5{color:var(--red)}
+  .callout.warn p{color:#7d2620}
+  .callout.good{background:var(--teal-soft);border-color:#c6ded6}
+  .callout.good h5{color:var(--teal)}
+  .callout.good p{color:#2a544b}
+  .callout.gold{background:var(--amber-soft);border-color:#ecdcb8}
+  .callout.gold h5{color:var(--amber)}
+  .callout.gold p{color:#6b4d14}
+
+  /* ---------- 00 定义 ---------- */
+  .defbox{background:#1a2233;border-radius:16px;padding:28px 26px;color:#eef1f6}
+  .defbox .lab{font-size:11.5px;letter-spacing:.16em;color:#8f9bb0;font-weight:700}
+  .defbox .big{font-size:clamp(17px,3.4vw,23px);font-weight:700;line-height:1.6;margin-top:12px}
+  .defbox .big em{font-style:normal;color:#7fd1c0}
+  .defbox .sub{margin-top:14px;font-size:14px;color:#b9c2d0;line-height:1.75}
+  .defbox .sub b{color:#e5a75b;font-weight:700}
+
+  /* ---------- 01 顺序变化 ---------- */
+  .shift{display:grid;grid-template-columns:1fr 40px 1fr;gap:14px;align-items:stretch;margin:20px 0 4px}
+  @media(max-width:720px){.shift{grid-template-columns:1fr;gap:10px}}
+  .shift-arrow{display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--ink-3);font-weight:700}
+  @media(max-width:720px){.shift-arrow{transform:rotate(90deg);height:26px}}
+  .shift-col{background:#fbfaf7;border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+  .shift-h{font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--ink-3);margin-bottom:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chips span{font-size:12.5px;color:var(--ink-3);background:#fff;border:1px solid var(--line);
+    border-radius:8px;padding:6px 10px;font-weight:600}
+  .shift-note{font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.6}
+  .ladder{display:flex;flex-direction:column;gap:8px}
+  .lad{border-radius:10px;padding:11px 13px;font-size:13.5px;font-weight:700;display:flex;
+    align-items:baseline;justify-content:space-between;gap:10px}
+  .lad em{font-style:normal;font-size:11.5px;font-weight:600;opacity:.85;white-space:nowrap}
+  .lad.l1{background:var(--teal-soft);color:var(--teal);border:1px solid #c6ded6}
+  .lad.l2{background:var(--blue-soft);color:var(--blue);border:1px solid #cddcf0;width:90%}
+  .lad.l3{background:#f1efe9;color:var(--ink-3);border:1px solid var(--line);width:78%}
+
+  /* ---------- 02 嵌套图 ---------- */
+  .nest{background:#fbfaf7;border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0}
+  .nest-outer{border:2px dashed #c9bda8;border-radius:14px;padding:16px 16px 18px;background:#fff}
+  .nest-t{font-size:14px;font-weight:800;color:var(--ink)}
+  .nest-t small{display:block;font-size:12.5px;font-weight:500;color:var(--ink-3);margin-top:3px}
+  .nest-inner{margin-top:14px;border:2px solid var(--teal);background:var(--teal-soft);border-radius:12px;
+    padding:14px 16px}
+  .nest-inner .nest-t{color:var(--teal)}
+  .nest-inner .nest-t small{color:#3f6f65}
+  .nest-inner p{font-size:12.5px;color:#3f6f65;margin-top:8px;line-height:1.65}
+  .flow2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  @media(max-width:640px){.flow2{grid-template-columns:1fr}}
+  .mini{border-radius:12px;padding:14px 16px;font-size:13.5px;line-height:1.65}
+  .mini .k{font-size:11.5px;font-weight:800;letter-spacing:.06em;display:block;margin-bottom:4px}
+  .mini.good{background:var(--teal-soft);border:1px solid #c6ded6;color:#2a544b}
+  .mini.good .k{color:var(--teal)}
+  .mini.bad{background:var(--red-soft);border:1px solid #f2cdc9;color:#7d2620}
+  .mini.bad .k{color:var(--red)}
+
+  /* ---------- 03 过滤器流程 + 交互 ---------- */
+  .pipeline{display:flex;align-items:stretch;gap:0;margin:20px 0 6px;flex-wrap:wrap}
+  .pnode{flex:1 1 0;min-width:150px;border:1px solid var(--line);background:#fbfaf7;border-radius:13px;padding:15px 16px}
+  .pnode .pn{font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--gold)}
+  .pnode h4{font-size:14.5px;margin:5px 0 5px}
+  .pnode p{font-size:12.8px;color:var(--ink-3);line-height:1.6}
+  .pnode.stop{border-color:#f2cdc9;background:var(--red-soft)}
+  .pnode.stop .pn{color:var(--red)}
+  .pnode.stop p{color:#7d2620}
+  .pnode.go{border-color:#c6ded6;background:var(--teal-soft)}
+  .pnode.go .pn{color:var(--teal)}
+  .pnode.go p{color:#2a544b}
+  .parrow{display:flex;align-items:center;justify-content:center;width:34px;color:var(--ink-3);font-size:18px;font-weight:700;flex:0 0 auto}
+  @media(max-width:760px){
+    .pipeline{flex-direction:column}
+    .parrow{width:auto;height:24px;transform:rotate(90deg)}
+  }
+
+  .picker{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0 16px}
+  .chip{font-size:13px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;
+    color:var(--ink-2);cursor:pointer;font-weight:650;transition:all .16s;font-family:inherit}
+  .chip:hover{border-color:var(--brand);color:var(--brand)}
+  .chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+  .scratch{position:relative;border:1px solid var(--line);border-radius:14px;background:#fbfaf7;
+    padding:20px;min-height:190px;overflow:hidden}
+  .scratch-empty{color:var(--ink-3);font-size:14px;text-align:center;padding:48px 10px}
+  .card-face{opacity:0;transform:translateY(6px);transition:opacity .34s ease,transform .34s ease}
+  .card-face.in{opacity:1;transform:none}
+  .cf-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .cf-name{font-size:17px;font-weight:800}
+  .cf-year{font-size:12.5px;color:var(--ink-3)}
+  .stamp{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;
+    border:2.5px solid var(--red);color:var(--red);font-size:22px;font-weight:800;transform:rotate(-12deg);
+    flex:0 0 auto;letter-spacing:.02em}
+  .stamp.pass{border-color:var(--teal);color:var(--teal);font-size:15px}
+  .gate-line{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+  .gate-line .gl-k{font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--gold)}
+  .gate-line .gl-k.pass{color:var(--teal)}
+  .gate-line .gl-k.fail{color:var(--red)}
+  .gate-line blockquote{font-size:15px;color:var(--ink);font-weight:500;line-height:1.75;margin-top:7px}
+  .gate-line .gl-next{font-size:13.5px;color:var(--ink-2);margin-top:12px;line-height:1.7}
+  .gate-line .gl-next b{color:var(--ink)}
+
+  /* ---------- 04 案例表 ---------- */
+  .tblscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table.tbl{width:100%;border-collapse:collapse;font-size:14px}
+  table.tbl th,table.tbl td{text-align:left;padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.tbl th{font-size:12.5px;color:var(--ink-3);font-weight:600;white-space:nowrap}
+  table.tbl td b{color:var(--ink)}
+  table.tbl tr:last-child td{border-bottom:none}
+  table.tbl td:first-child,table.tbl th:first-child{padding-left:0}
+  table.tbl td:last-child,table.tbl th:last-child{padding-right:0}
+  .cat{display:block;font-size:12px;color:var(--ink-3);margin-top:3px;line-height:1.5}
+  .pill{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .pill.ok{background:var(--teal-soft);color:var(--teal)}
+  .pill.bad{background:var(--red-soft);color:var(--red)}
+  .pill.mid{background:var(--blue-soft);color:var(--blue)}
+  .pill.gold{background:var(--amber-soft);color:var(--amber)}
+  @media(max-width:680px){
+    table.tbl,table.tbl tbody,table.tbl tr,table.tbl td{display:block;width:auto}
+    table.tbl thead{display:none}
+    table.tbl tr{border:1px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:12px;background:#fbfaf7}
+    table.tbl tr:last-child{margin-bottom:0}
+    table.tbl td{border-bottom:none;padding:6px 0;display:flex;align-items:baseline;justify-content:space-between;gap:16px;text-align:left}
+    table.tbl td::before{content:attr(data-l);font-size:12.5px;color:var(--ink-3);flex:0 0 auto}
+    table.tbl td.lead{display:block;padding:0 0 11px;margin-bottom:7px;border-bottom:1px dashed var(--line)}
+    table.tbl td.lead::before{content:none}
+    table.tbl td.wide{display:block;padding:8px 0 0}
+    table.tbl td.wide::before{content:none}
+  }
+
+  /* ---------- 05 误解 ---------- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:820px){.grid3{grid-template-columns:1fr}}
+  .mcard{border:1px solid var(--line);border-radius:14px;padding:0;overflow:hidden;background:#fff;
+    display:flex;flex-direction:column}
+  .mcard .mh{background:var(--red-soft);border-bottom:1px solid #f2cdc9;padding:13px 16px}
+  .mcard .mh .mt{font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--red);display:block;margin-bottom:3px}
+  .mcard .mh h4{font-size:14.5px;color:#7d2620;line-height:1.5}
+  .mcard .mb{padding:15px 16px;flex:1}
+  .mcard .mb blockquote{font-size:14px;color:var(--ink-2);line-height:1.75;font-weight:500}
+  .mcard .mb .who{font-size:12px;color:var(--ink-3);margin-top:9px}
+
+  /* ---------- 06 时间线 ---------- */
+  .tl{position:relative;margin:22px 0 4px;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--line),var(--line))}
+  .tl-item{position:relative;padding:0 0 22px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;
+    background:#fff;border:2.5px solid var(--line)}
+  .tl-item.on::before{border-color:var(--brand);background:var(--brand)}
+  .tl-item.mid::before{border-color:var(--gold);background:var(--gold)}
+  .tl-item.now::before{border-color:var(--teal);background:var(--teal)}
+  .tl-y{font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--ink-3)}
+  .tl-item.on .tl-y{color:var(--brand)}
+  .tl-item.mid .tl-y{color:var(--amber)}
+  .tl-item.now .tl-y{color:var(--teal)}
+  .tl-h{font-size:15.5px;font-weight:750;margin:3px 0 5px}
+  .tl-p{font-size:14px;color:var(--ink-2);line-height:1.75}
+  .tl-p blockquote{margin-top:8px;font-size:14px;color:var(--ink);font-weight:500;
+    border-left:3px solid var(--line);padding-left:12px}
+
+  /* ---------- 07 三把尺子 ---------- */
+  ul.points{list-style:none;margin-top:6px;counter-reset:lens}
+  ul.points li{position:relative;padding:14px 4px 14px 44px;border-bottom:1px dashed var(--line);font-size:14.8px;color:var(--ink-2)}
+  ul.points li:last-child{border-bottom:none}
+  ul.points li::before{counter-increment:lens;content:counter(lens);position:absolute;left:2px;top:13px;
+    width:26px;height:26px;border-radius:50%;background:var(--brand-soft);color:var(--brand);
+    font-weight:800;font-size:13.5px;display:flex;align-items:center;justify-content:center}
+  ul.points li b{color:var(--ink)}
+  ul.points li span.hint{display:block;font-size:12.5px;color:var(--ink-3);margin-top:4px;line-height:1.6}
+
+  .takeaway{background:#fdf7ef;border:1px solid #ecdcc4;border-radius:16px;padding:24px;margin-top:16px}
+  .takeaway h3{font-size:17px;margin-bottom:10px;color:#7a4e12}
+  .takeaway p{font-size:15px;color:#5c4426;line-height:1.8}
+  .takeaway p+p{margin-top:9px}
+
+  .foot{text-align:center;color:var(--ink-3);font-size:12.5px;margin-top:56px;line-height:1.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">大道 · 投资理念 02</span>
+    <h1>商业模式：投资的<span class="hl">第一过滤器</span></h1>
+    <p class="lede">
+      段永平本人更常说「<b>生意模式</b>」，两者是一回事。这个词在他心里的位置，是 2006 年与巴菲特那顿午餐之后被提到第一位的——
+      它不是“最重要的一环”，而是<b>最先生效的闸门</b>：<b>不通过，后面全部不看</b>。
+    </p>
+    <p class="src">原文：<a href="https://duan.ayaseeri.com/shangyemoshi">duan.ayaseeri.com/shangyemoshi</a> · 收录于「大道总纲 / 段永平投资问答录」</p>
+  </div>
+
+  <!-- ============ 00 定义 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">00</span><h2>先给一句话的定义</h2></div>
+    <div class="defbox">
+      <div class="lab">段永平 · 2013-03-04</div>
+      <div class="big">“什么叫<em>生意模式</em>：生意模式就是<em>赚钱的模式</em>，最后赚得越多的模式就应该越好。”</div>
+      <div class="sub">
+        2019-03-14 补了一层：<b>“商业模式简单讲就是公司赚钱的模式。好的商业模式是有护城河的——举个极端的例子，就是海关。”</b>
+        <br>海关不需要产品、不需要营销、不需要研发，但它守着唯一的入口。这就是“护城河”这个词的极限形态。
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 起源 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>起源：一顿午餐，换了一个顺序</h2><span class="sec-sub">2006 年 · 转折点</span></div>
+    <div class="card">
+      <p class="para">
+        真正改变他的不是听到了一个新概念，而是听到了一个<b>顺序</b>。他问巴菲特：“看一家公司，你首先看什么？”
+        巴菲特的答案是“商业模式”——并且补了一句：<b>如果商业模式不对，我就不往下看了。</b>
+      </p>
+      <p class="para">于是“看公司”这件事，从一个平铺的清单，变成了一个有闸门的流程：</p>
+
+      <div class="shift">
+        <div class="shift-col">
+          <div class="shift-h">2006 年之前 · 什么都看</div>
+          <div class="chips">
+            <span>商业模式</span><span>管理层</span><span>价格</span>
+            <span>行业空间</span><span>财报数字</span><span>宏观环境</span>
+          </div>
+          <p class="shift-note">生意模式确实重要，“但往往是和其他很多重要的东西<b>混在一起看</b>的”。</p>
+        </div>
+        <div class="shift-arrow">&rarr;</div>
+        <div class="shift-col">
+          <div class="shift-h">2006 年之后 · 有序通过</div>
+          <div class="ladder">
+            <div class="lad l1">① 商业模式 <em>不过就停</em></div>
+            <div class="lad l2">② 企业文化</div>
+            <div class="lad l3">③ 价格 <em>这是运气</em></div>
+          </div>
+          <p class="shift-note">前两关是“资格线”，第三关才轮到“贵不贵”。</p>
+        </div>
+      </div>
+
+      <div class="quote">
+        <p>“首先看『商业模式』很重要，<b>刮到一个『谢』字时就不用再往下刮了吧</b>。”</p>
+        <p class="who">段永平 · 2025-10-24 —— 彩票刮奖的比喻：这一格是“谢”，后面刮出什么都不重要了</p>
+      </div>
+
+      <div class="callout gold">
+        <h5>但理解它花了十年</h5>
+        <p>
+          “大道从听到这句话后大概花了<b>10 年</b>的时间才真的理解了这句话的威力。”（2025-10-24）
+          听懂了顺序，不等于拥有了判断力——<b>顺序是当天就能改的，眼力得靠年复一年的生意经验堆出来。</b>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 定义结构 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>它和护城河、企业文化是什么关系</h2><span class="sec-sub">不是并列的三件事</span></div>
+    <div class="card">
+      <p class="para">
+        很多人把“商业模式 / 护城河 / 企业文化”当成三个并列的评分项。段永平的写法是<b>嵌套</b>：
+        护城河在商业模式<b>里面</b>，企业文化则是能<b>毁掉</b>它的东西。
+      </p>
+
+      <div class="nest">
+        <div class="nest-outer">
+          <div class="nest-t">商业模式（生意模式）<small>公司赚钱的模式</small></div>
+          <div class="nest-inner">
+            <div class="nest-t">护城河<small>生意模式的一部分</small></div>
+            <p>“护城河实际上我觉得是生意模式的一部分，好的生意模式往往具有很宽的护城河。”</p>
+          </div>
+        </div>
+
+        <div class="flow2">
+          <div class="mini good">
+            <span class="k">正向 · 保障</span>
+            “好的生意模式往往是好的<b>未来现金流</b>的保障。”
+          </div>
+          <div class="mini bad">
+            <span class="k">反向 · 破坏</span>
+            “不好的<b>企业文化</b>，它可能会把好的商业模式毁掉。”（2025）
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        这个嵌套关系解释了一件常被误读的事：<b>为什么“好生意”这么难复制。</b>
+        因为它不只是一套商业安排，里面还装着一条护城河，而护城河又是由产品差异化、定价权、以及企业文化长期养出来的。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 03 两道过滤器 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>两道过滤器，才轮到价格</h2><span class="sec-sub">可交互 · 点一家公司试试</span></div>
+    <div class="card">
+      <p class="para">
+        “因为价格是你的运气，但是<b>商业模式的第一关一定要过</b>，你还要看他企业文化是不是你喜欢的。”（2025）
+        三道关的顺序不能换：
+      </p>
+
+      <div class="pipeline">
+        <div class="pnode go">
+          <div class="pn">第一关</div>
+          <h4>商业模式</h4>
+          <p>这生意赚不赚钱、赚的是不是现金、增长要不要烧钱</p>
+        </div>
+        <div class="parrow">→</div>
+        <div class="pnode go">
+          <div class="pn">第二关</div>
+          <h4>企业文化</h4>
+          <p>它是不是你喜欢的；它会不会把好模式毁掉</p>
+        </div>
+        <div class="parrow">→</div>
+        <div class="pnode">
+          <div class="pn">第三关</div>
+          <h4>价格</h4>
+          <p>前两关过了才轮到它。价格只决定你什么时候买</p>
+        </div>
+        <div class="parrow">→</div>
+        <div class="pnode stop">
+          <div class="pn">任何一关不过</div>
+          <h4>出局</h4>
+          <p>到此为止，不用再往下看。后面的一切分析都失去意义</p>
+        </div>
+      </div>
+
+      <p class="para" style="margin-top:22px">下面用原文里的四家公司，演示第一关是怎么“刮”的：</p>
+
+      <div class="picker" id="picker">
+        <button class="chip" data-c="apple">苹果 · 2011</button>
+        <button class="chip" data-c="netease">网易 · 2001</button>
+        <button class="chip" data-c="zoom">Zoom</button>
+        <button class="chip" data-c="ge">通用电气 · 2008</button>
+      </div>
+
+      <div class="scratch" id="scratch">
+        <div class="scratch-empty" id="scratchEmpty">点上面任意一家公司，刮开它的第一关</div>
+        <div class="card-face" id="cardFace" style="display:none">
+          <div class="cf-top">
+            <div class="stamp" id="stamp">谢</div>
+            <div>
+              <div class="cf-name" id="cfName">—</div>
+              <div class="cf-year" id="cfYear">—</div>
+            </div>
+          </div>
+          <div class="gate-line">
+            <div class="gl-k" id="glK">第一关 · 商业模式</div>
+            <blockquote id="glQuote">—</blockquote>
+            <div class="gl-next" id="glNext">—</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        <b>注意 GE 那一格。</b>它是在 2008 年买入的，当时并没有按这套流程走；是多年之后回头看，才判它“不符合这两个过滤器”。
+        这说明过滤器不只是选股工具，也是<b>复盘工具</b>——它能把当年说不清的亏损，归因到一个具体的位置上。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 04 案例账本 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>案例账本</h2><span class="sec-sub">原文列出的四个标的</span></div>
+    <div class="card">
+      <div class="tblscroll">
+      <table class="tbl">
+        <thead>
+          <tr><th>标的</th><th>第一关</th><th>段永平的说法</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="lead"><b>苹果</b><span class="cat">2011 年买入</span></td>
+            <td data-l="判定"><span class="pill ok">通过 · 梦寐以求</span></td>
+            <td class="wide" data-l="说法">
+              “本人喜欢苹果生意模式的很重要的一点，来自于自己在消费电子 20 多年的体验，<b>苹果是我一直梦寐以求但似乎难以达到的生意模式</b>。”（2013-01-22）
+              <span class="cat">2019 年与巴菲特聚会时，他说苹果的生意模式比可口可乐好——巴菲特一句 “Wow” 就 get 了这个点，随后大量买入苹果。</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="lead"><b>网易</b><span class="cat">2001 年买入</span></td>
+            <td data-l="判定"><span class="pill ok">通过 · 看懂行业本质</span></td>
+            <td class="wide" data-l="说法">
+              买入的理由是<b>理解了游戏行业的生意模式和市场空间</b>。
+              <span class="cat">注意这里的措辞是“行业”，不是“公司”——他先看懂的是这门生意本身怎么赚钱。</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="lead"><b>Zoom</b><span class="cat">始终不敢大投</span></td>
+            <td data-l="判定"><span class="pill mid">卡在第一关</span></td>
+            <td class="wide" data-l="说法">
+              “我很欣赏 Zoom 的创始人和 CEO，也觉得 Zoom 的文化很好，但就是<b>搞不清 Zoom 的护城河在哪里</b>（或者说商业模式不是很强大）。在看到强大的护城河之前，我是不敢大投的。”（2022-01-30）
+              <span class="cat">这是最干净的一次示范：文化过关、人也欣赏，但第一关过不去，就不投。</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="lead"><b>通用电气 GE</b><span class="cat">2008 年买入 · 事后判为错误</span></td>
+            <td data-l="判定"><span class="pill bad">未通过</span></td>
+            <td class="wide" data-l="说法">
+              “它当然是个错误，因为它<b>不符合我后来决定的、要符合企业文化和商业模式这两个过滤器</b>。”（2025 年方三文对话）
+              <span class="cat">买的时候这套过滤器还没定型，所以这不是“看错了”，是“当时还没这把尺子”。</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout">
+        <h5>四个案例放在一起，说明的是同一件事</h5>
+        <p>
+          两个赚大钱的（苹果、网易），共同点是<b>先看懂了生意怎么赚钱</b>；两个没赚的（Zoom 不投、GE 买了），共同点是
+          <b>生意模式这一关没有过</b>——一个卡在门外，一个当年根本没设这道门。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 误解 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>三个常见误解</h2><span class="sec-sub">每一条都有原话可对</span></div>
+    <div class="grid3">
+      <div class="mcard">
+        <div class="mh">
+          <span class="mt">误解一</span>
+          <h4>好的商业模式可以复制</h4>
+        </div>
+        <div class="mb">
+          <blockquote>“生意模式可以复制吗？复制一下谷歌或者苹果试试？好的生意模式是<b>包括企业文化在里面</b>的，非常非常难复制。”</blockquote>
+          <div class="who">2013-05-31</div>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mh">
+          <span class="mt">误解二</span>
+          <h4>低毛利也可以是好赛道</h4>
+        </div>
+        <div class="mb">
+          <blockquote>“好赛道是<b>不会进入低毛利的</b>，低毛利的都是商业模式比较差的、产品差异化很小的产品。那作为创业者你还要进去，那就脑子坏了呗。”</blockquote>
+          <div class="who">2025 年浙大演讲</div>
+        </div>
+      </div>
+      <div class="mcard">
+        <div class="mh">
+          <span class="mt">误解三</span>
+          <h4>模式一般，但管理好就够了</h4>
+        </div>
+        <div class="mb">
+          <blockquote>“这是个<b>机会成本</b>问题，你总是挑你自己能看懂的公司里面商业模式最好的投。”</blockquote>
+          <div class="who">2021-10-24</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 思想演变 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><h2>思想演变：从“什么都看”到一句话</h2><span class="sec-sub">四个阶段</span></div>
+    <div class="card">
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-y">2006 年之前</div>
+          <div class="tl-h">什么都看</div>
+          <div class="tl-p">生意模式只是众多考量因素之一，和其他重要东西混在一起看，没有先后之分。</div>
+        </div>
+        <div class="tl-item on">
+          <div class="tl-y">2006 年 · 转折点</div>
+          <div class="tl-h">把它放到第一位</div>
+          <div class="tl-p">
+            与巴菲特午餐后，开始把商业模式当作过滤器。
+            <blockquote>“我最重要的收获就是我问他，你看公司最重要的什么，他说商业模式……如果商业模式不对，我就不往下看了。他有过滤器。”（2025）</blockquote>
+          </div>
+        </div>
+        <div class="tl-item mid">
+          <div class="tl-y">2010 年代 · 融会贯通期</div>
+          <div class="tl-h">两道过滤器定型</div>
+          <div class="tl-p">明确了“商业模式 + 企业文化”的双闸门体系，并在雪球上大量讨论各行业生意模式的优劣。</div>
+        </div>
+        <div class="tl-item now">
+          <div class="tl-y">2020 年代 · 极简表达期</div>
+          <div class="tl-h">压缩成一句可执行的话</div>
+          <div class="tl-p">
+            <blockquote>“好的商业模式很简单，就是<b>利润和净现金流一直都是杠杠的</b>，而且<b>竞争对手哪怕用很长的时间也很难抢</b>。”（2020-10-11）</blockquote>
+            前一句讲赚钱能力，后一句讲护城河——正好是 00 节那两个要素的口语版。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 三把尺子 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">07</span><h2>真要动手看，就看这三条</h2><span class="sec-sub">2020-11-06 原话</span></div>
+    <div class="card">
+      <p class="para">“一般来说，商业模式经常要看的东西不外是——”</p>
+      <ul class="points">
+        <li><b>护城河是否长期坚固</b>
+          <span class="hint">拆开是两个变量：产品差异化的持续性，以及企业文化。</span></li>
+        <li><b>长期的毛利率是否合理</b>
+          <span class="hint">它其实是“产品的可替代性”的读数——毛利率被压下去，通常意味着客户随时能换掉你。</span></li>
+        <li><b>长期的净现金流是否让人满意</b>
+          <span class="hint">原文补了一句关键的括号：“长期而言其实就是净利润”。两句话说的是同一件事，只是现金流更难被会计口径修饰。</span></li>
+      </ul>
+
+      <div class="callout good">
+        <h5>为什么最后都落在现金流上</h5>
+        <p>
+          “所有有关投资的说法实际上都是在讨论<b>如何看懂现金流</b>的问题——比如生意模式、护城河、能力圈，等等。”
+          生意模式是<b>因</b>，现金流是<b>果</b>；护城河决定这个果能持续多久。
+        </p>
+      </div>
+    </div>
+
+    <div class="takeaway">
+      <h3>回到那句话</h3>
+      <p>
+        段永平自己也说：“什么是生意模式？我也说不清楚，也许大学里的教授能给个文点的定义吧。但是，我觉得我大致知道那到底是什么意思。”
+      </p>
+      <p>
+        这篇文档里真正可执行的，不是那个定义，而是那个<b>顺序</b>——
+        <b>先确认这门生意本身有没有钱可赚，再看掌钱的人可不可靠，最后才谈价格。</b>
+        顺序一旦颠倒（比如先看到便宜，再回头找理由），过滤器就失效了，因为它已经从“筛选工具”降级成了“辩护工具”。
+      </p>
+    </div>
+  </section>
+
+  <div class="foot">
+    内容整理自《商业模式》（大道总纲 · 段永平投资问答录），观点与原话均归段永平本人，日期标注为该语录的原始时间。<br>
+    本页仅为原文的可视化梳理，不构成投资建议。市场有风险，投资需谨慎。
+  </div>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  function $(id){ return document.getElementById(id); }
+
+  /* ---------------- 03 第一关演示 ---------------- */
+  var CASES = {
+    apple: {
+      name:'苹果', year:'2011 年买入 · 持有至今',
+      pass:true,
+      quote:'“本人喜欢苹果生意模式的很重要的一点，来自于自己在消费电子 20 多年的体验，苹果是我一直梦寐以求但似乎难以达到的生意模式。”（2013-01-22）',
+      next:'第一关通过 → 进入第二关（企业文化）→ 再看价格。<b>2019 年他对巴菲特说，苹果的生意模式比可口可乐好。</b>'
+    },
+    netease: {
+      name:'网易', year:'2001 年买入',
+      pass:true,
+      quote:'买入的理由是理解了<b>游戏行业的生意模式和市场空间</b>。',
+      next:'第一关通过。<b>注意他先看懂的是“行业”，不是“公司”</b>——生意的赚钱方式，比某一家公司当下的财报更靠前。'
+    },
+    zoom: {
+      name:'Zoom', year:'欣赏创始人与文化 · 始终不敢大投',
+      pass:false,
+      quote:'“我很欣赏 Zoom 的创始人和 CEO，也觉得 Zoom 的文化很好，但就是搞不清 Zoom 的护城河在哪里（或者说商业模式不是很强大）。”（2022-01-30）',
+      next:'<b>到此为止。</b>文化这一关它是过的，人和产品也都欣赏——但第一关过不去，就不再往下看了。'
+    },
+    ge: {
+      name:'通用电气 GE', year:'2008 年买入 · 事后判为错误',
+      pass:false,
+      quote:'“它当然是个错误，因为它不符合我后来决定的、要符合企业文化和商业模式这两个过滤器。”（2025 年方三文对话）',
+      next:'<b>到此为止。</b>当年买的时候这套过滤器还没定型——所以这不是“看错了”，而是“当时还没有这把尺子”。'
+    }
+  };
+
+  var picker = $('picker'), face = $('cardFace'), empty = $('scratchEmpty');
+  var stamp = $('stamp'), cfName = $('cfName'), cfYear = $('cfYear');
+  var glK = $('glK'), glQuote = $('glQuote'), glNext = $('glNext');
+
+  function show(key){
+    var c = CASES[key];
+    if(!c) return;
+
+    var chips = picker.querySelectorAll('.chip');
+    Array.prototype.forEach.call(chips, function(x){
+      x.classList.toggle('on', x.getAttribute('data-c') === key);
+    });
+
+    stamp.textContent = c.pass ? '过' : '谢';
+    stamp.className = 'stamp' + (c.pass ? ' pass' : '');
+    cfName.textContent = c.name;
+    cfYear.textContent = c.year;
+    glK.textContent = '第一关 · 商业模式 —— ' + (c.pass ? '通过' : '不通过');
+    glK.className = 'gl-k ' + (c.pass ? 'pass' : 'fail');
+    glQuote.innerHTML = c.quote;
+    glNext.innerHTML = c.next;
+
+    empty.style.display = 'none';
+    face.style.display = 'block';
+    face.classList.remove('in');
+    /* 强制重排，让过渡动画重新播放 */
+    void face.offsetWidth;
+    face.classList.add('in');
+  }
+
+  picker.addEventListener('click', function(e){
+    var b = e.target.closest('.chip');
+    if(!b) return;
+    show(b.getAttribute('data-c'));
+  });
+})();
+</script>
+</body>
+</html>
