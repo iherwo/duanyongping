@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卖 put：收一笔保费，承诺在你本来就想要的价位买入 · 段永平</title>
+<style>
+  :root{
+    --ink:#1a2233; --ink-2:#4a5568; --ink-3:#8a94a6;
+    --bg:#f7f5f0; --card:#ffffff; --line:#e6e1d8;
+    --brand:#b3562e; --brand-soft:#f5e3d9;
+    --gold:#c8963e; --teal:#2f6b5f; --teal-soft:#e2eee9;
+    --blue:#2b5ea8; --blue-soft:#e4ecf8;
+    --coral:#c05a32; --coral-soft:#faece7;
+    --amber:#8a6413; --amber-soft:#fdf4e3;
+    --red:#a83228; --red-soft:#fdeceb;
+    --green:#2e7d4f; --green-soft:#e7f2ea;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px}
+
+  .hero{padding:36px 8px 12px}
+  .tag{display:inline-block;font-size:12.5px;letter-spacing:.12em;color:var(--brand);border:1px solid var(--brand);
+    border-radius:999px;padding:3px 12px;font-weight:600;margin-bottom:18px;background:#fff}
+  h1{font-size:clamp(23px,4.2vw,34px);line-height:1.34;font-weight:800;letter-spacing:-.01em}
+  h1 .hl{color:var(--teal)}
+  .lede{margin-top:14px;font-size:16.5px;color:var(--ink-2);max-width:710px}
+  .lede b{color:var(--ink)}
+  .src{margin-top:16px;font-size:12.5px;color:var(--ink-3)}
+  .src a{color:var(--ink-3);text-decoration:none;border-bottom:1px dotted var(--ink-3)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+    box-shadow:0 1px 2px rgba(26,34,51,.04)}
+  section{margin-top:44px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:0 4px 16px;flex-wrap:wrap}
+  .sec-num{font-size:13px;font-weight:800;color:var(--gold);letter-spacing:.1em}
+  .sec-head h2{font-size:clamp(17.5px,3.1vw,20px);font-weight:750;letter-spacing:-.01em}
+  .sec-sub{font-size:13.5px;color:var(--ink-3);margin-left:auto}
+  @media(max-width:640px){.sec-sub{margin-left:0;width:100%}}
+
+  p.para{color:var(--ink-2);font-size:15px;margin-bottom:12px}
+  p.para:last-child{margin-bottom:0}
+  p.para b{color:var(--ink)}
+  .note{font-size:13.5px;color:var(--ink-3);margin-top:14px;line-height:1.75}
+  .note b{color:var(--ink-2)}
+
+  .quote{background:var(--card);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:20px 22px;margin:16px 0}
+  .quote p{font-size:16px;color:var(--ink);font-weight:500;line-height:1.75}
+  .quote .who{margin-top:8px;font-size:13px;color:var(--ink-3);font-weight:400}
+  blockquote.plain{font-size:14.8px;color:var(--ink);font-weight:500;line-height:1.78;
+    border-left:3px solid var(--line);padding-left:14px;margin:10px 0}
+  blockquote.plain .who{display:block;font-size:12.5px;color:var(--ink-3);font-weight:400;margin-top:5px}
+
+  .callout{background:var(--blue-soft);border:1px solid #cddcf0;border-radius:14px;padding:18px 20px;margin-top:16px}
+  .callout h5{font-size:14px;color:var(--blue);margin-bottom:6px}
+  .callout p{font-size:14px;color:#3c4d63}
+  .callout.warn{background:var(--red-soft);border-color:#f2cdc9}
+  .callout.warn h5{color:var(--red)}
+  .callout.warn p{color:#7d2620}
+  .callout.good{background:var(--teal-soft);border-color:#c6ded6}
+  .callout.good h5{color:var(--teal)}
+  .callout.good p{color:#2a544b}
+  .callout.gold{background:var(--amber-soft);border-color:#ecdcb8}
+  .callout.gold h5{color:var(--amber)}
+  .callout.gold p{color:#6b4d14}
+
+  /* ---------- 00 三步机 ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 6px}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+  .stp{border:1px solid var(--line);border-radius:14px;padding:16px 17px;background:#fbfaf7;position:relative}
+  .stp .sn{font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--brand);display:block;margin-bottom:7px}
+  .stp h4{font-size:15px;margin-bottom:7px;line-height:1.5}
+  .stp p{font-size:13.5px;line-height:1.7;color:var(--ink-2)}
+  .stp b{color:var(--ink)}
+  .branch2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  @media(max-width:700px){.branch2{grid-template-columns:1fr}}
+  .br{border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .br .bk{font-size:11.5px;font-weight:800;letter-spacing:.07em;display:block;margin-bottom:7px}
+  .br h4{font-size:15px;margin-bottom:7px}
+  .br p{font-size:13.6px;line-height:1.72;color:var(--ink-2)}
+  .br.up{background:var(--red-soft);border-color:#f2cdc9}
+  .br.up .bk,.br.up h4{color:#7d2620}
+  .br.up p{color:#7d2620}
+  .br.dn{background:var(--teal-soft);border-color:#c6ded6}
+  .br.dn .bk,.br.dn h4{color:#26564c}
+  .br.dn p{color:#2a544b}
+
+  /* ---------- 01 赌客 vs 赌场 ---------- */
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+  @media(max-width:720px){.quad{grid-template-columns:1fr}}
+  .qc{border:1px solid var(--line);border-radius:14px;padding:16px 17px}
+  .qc .qk{font-size:11.5px;font-weight:800;letter-spacing:.08em;display:block;margin-bottom:7px}
+  .qc h4{font-size:15.5px;margin-bottom:7px}
+  .qc p{font-size:13.5px;line-height:1.7}
+  .qc .side{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;margin-top:9px;padding-top:9px;
+    border-top:1px dashed rgba(0,0,0,.09)}
+  .qc.lose{background:var(--red-soft);border-color:#f2cdc9}
+  .qc.lose .qk,.qc.lose h4{color:#7d2620}
+  .qc.lose p{color:#7d2620}
+  .qc.lose .side{color:#a83228}
+  .qc.win{background:var(--teal-soft);border-color:#c6ded6}
+  .qc.win .qk,.qc.win h4{color:#26564c}
+  .qc.win p{color:#2a544b}
+  .qc.win .side{color:#2f6b5f}
+
+  /* ---------- 02 交易解剖 ---------- */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:6px 0 4px}
+  @media(max-width:760px){.facts{grid-template-columns:1fr 1fr}}
+  .fx{border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#fbfaf7}
+  .fx .fk{font-size:11.5px;color:var(--ink-3);font-weight:700;display:block;margin-bottom:4px}
+  .fx .fv{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  .fx .fu{font-size:12px;color:var(--ink-3);font-weight:400;margin-left:2px}
+  .fx.be .fv{color:var(--gold)}
+  .fx.st .fv{color:var(--brand)}
+
+  .px-chart{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px 12px 6px}
+  .px-chart svg{display:block;width:100%;height:auto}
+  .cap{font-size:12.5px;color:var(--ink-3);margin:8px 4px 10px;line-height:1.65}
+  .cap b{color:var(--ink-2)}
+  .lg{display:flex;gap:16px;flex-wrap:wrap;margin:2px 4px 8px;font-size:12px;color:var(--ink-3)}
+  .lg span{display:inline-flex;align-items:center;gap:5px}
+  .lg i{width:14px;height:9px;border-radius:2px;display:inline-block}
+
+  .slide{margin-top:16px}
+  .slide .lb{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  .slide .lb span{font-size:13.5px;color:var(--ink-2);font-weight:600}
+  .slide .lb output{font-size:21px;font-weight:800;color:var(--brand);font-variant-numeric:tabular-nums}
+  .slide input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:99px;
+    background:linear-gradient(90deg,#2e7d4f 0%,#e6e1d8 42%,#e6e1d8 58%,#a83228 100%);outline:none;cursor:pointer}
+  .slide input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+    background:#fff;border:3px solid var(--brand);cursor:grab;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+  .slide .ticks{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-3);margin-top:6px;
+    font-variant-numeric:tabular-nums}
+  .slide .hint{font-size:12.5px;color:var(--ink-3);margin-top:8px}
+
+  .pxbadge{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.02em;border-radius:999px;
+    padding:5px 14px;margin-top:16px}
+  .pxbadge.a{background:var(--red-soft);color:#7d2620;border:1px solid #f2cdc9}
+  .pxbadge.b{background:var(--amber-soft);color:#6b4d14;border:1px solid #ecdcb8}
+  .pxbadge.c{background:var(--green-soft);color:#245c3c;border:1px solid #cfe3d6}
+
+  .oc{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:12px}
+  @media(max-width:760px){.oc{grid-template-columns:1fr}}
+  .occ{border:1.5px solid var(--line);border-radius:13px;padding:15px 16px;background:#fbfaf7;
+    transition:border-color .18s,background .18s,box-shadow .18s}
+  .occ .ok{font-size:11.5px;font-weight:800;letter-spacing:.06em;display:block;margin-bottom:6px;color:var(--ink-3)}
+  .occ h4{font-size:14.5px;margin-bottom:6px;line-height:1.5}
+  .occ p{font-size:13.4px;line-height:1.7;color:var(--ink-2)}
+  .occ.on{border-color:var(--brand);background:#fff;box-shadow:0 2px 12px rgba(179,86,46,.13)}
+  .occ.on .ok{color:var(--brand)}
+  .eqn{margin-top:14px;font-size:13.8px;color:var(--ink-2);background:#fbfaf7;border:1px dashed var(--line);
+    border-radius:12px;padding:13px 16px;line-height:1.9;font-variant-numeric:tabular-nums}
+  .eqn b{color:var(--ink)}
+  .eqn code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--brand);font-weight:600}
+
+  /* ---------- 03 等值 ---------- */
+  .eqv{display:grid;grid-template-columns:1fr 52px 1fr;gap:10px;align-items:center;margin-top:18px}
+  @media(max-width:760px){.eqv{grid-template-columns:1fr;gap:8px}}
+  .eqbox{border:1px solid var(--line);border-radius:14px;padding:14px 12px 8px;background:#fff}
+  .eqbox .ek{font-size:12px;font-weight:800;letter-spacing:.05em;color:var(--brand);display:block;
+    padding:0 4px 6px;line-height:1.5}
+  .eqbox svg{display:block;width:100%;height:auto}
+  .eqbox .ef{font-size:12.5px;color:var(--ink-3);padding:6px 4px 4px;line-height:1.6}
+  .eqsign{display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:var(--gold)}
+  @media(max-width:760px){.eqsign{height:26px;font-size:20px}}
+
+  /* ---------- 04 对照 ---------- */
+  .cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:16px;font-size:13.8px;
+    border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .cmp th,.cmp td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.65}
+  .cmp thead th{background:#f2efe8;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--ink-2)}
+  .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:none}
+  .cmp tbody th{background:#fbfaf7;font-weight:700;color:var(--ink);width:26%}
+  .cmp td.a{color:var(--ink-2)}
+  .cmp td.b{color:#26564c;background:#f4faf7}
+  .cmp td b{color:var(--ink)}
+  .cmp td.b b{color:#1f4a3f}
+  .cmp .win{color:var(--brand);font-weight:800}
+  .cmp .lose{color:var(--ink-3);font-weight:700}
+  @media(max-width:560px){.cmp th,.cmp td{padding:9px 10px;font-size:12.8px}.cmp tbody th{width:32%}}
+
+  /* ---------- 05 温度计 ---------- */
+  .thermo{position:relative;margin:20px 0 16px}
+  .th-bar{height:9px;border-radius:99px;background:linear-gradient(90deg,#2e7d4f,#c8963e 46%,#b3562e 100%)}
+  .th-zones{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
+  @media(max-width:700px){.th-zones{grid-template-columns:1fr}}
+  .tz{text-align:left;font-family:inherit;cursor:pointer;border:1.5px solid var(--line);background:#fbfaf7;
+    border-radius:12px;padding:14px 15px;transition:all .16s ease;color:var(--ink)}
+  .tz:hover{border-color:var(--brand)}
+  .tz .zl{font-size:14.5px;font-weight:750;display:block;margin-bottom:4px}
+  .tz .zt{font-size:12.5px;color:var(--ink-3);display:block;line-height:1.55}
+  .tz.on{background:#fff;border-color:var(--brand);box-shadow:0 2px 12px rgba(179,86,46,.13)}
+  .tz.on .zl{color:var(--brand)}
+  .tz.on .zt{color:var(--ink-2)}
+  .tdet{border:1px solid var(--line);border-radius:14px;background:#fff;padding:19px 21px;min-height:150px}
+  .tdet .tk{font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--brand)}
+  .tdet h4{font-size:16px;margin:8px 0 9px;line-height:1.5}
+  .tdet blockquote{font-size:14.6px;font-weight:500;line-height:1.78;color:var(--ink)}
+  .tdet .tn{font-size:13.4px;color:var(--ink-3);margin-top:10px;line-height:1.7}
+  .tdet .tt{margin-top:13px;padding-top:12px;border-top:1px dashed var(--line);font-size:14px;
+    color:var(--ink-2);line-height:1.7}
+  .tdet .tt b{color:var(--brand)}
+
+  /* ---------- 06 铁律 ---------- */
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:6px}
+  @media(max-width:720px){.rules{grid-template-columns:1fr}}
+  .rl{border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:0 13px 13px 0;
+    padding:15px 17px;background:#fbfaf7}
+  .rl .rk{font-size:11.5px;font-weight:800;letter-spacing:.07em;color:var(--teal);display:block;margin-bottom:6px}
+  .rl h4{font-size:15px;margin-bottom:7px;line-height:1.5}
+  .rl blockquote{font-size:13.5px;color:var(--ink-2);line-height:1.73;font-weight:500}
+
+  .mis{display:flex;flex-direction:column;gap:12px}
+  .mrow{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;
+    display:grid;grid-template-columns:200px 1fr}
+  @media(max-width:720px){.mrow{grid-template-columns:1fr}}
+  .mrow .ml{background:var(--red-soft);border-right:1px solid #f2cdc9;padding:15px 17px}
+  @media(max-width:720px){.mrow .ml{border-right:none;border-bottom:1px solid #f2cdc9}}
+  .mrow .ml .mt{font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--red);display:block;margin-bottom:5px}
+  .mrow .ml h4{font-size:14.5px;color:#7d2620;line-height:1.5}
+  .mrow .mr{padding:15px 19px}
+  .mrow .mr blockquote{font-size:14.3px;color:var(--ink-2);line-height:1.75;font-weight:500}
+  .mrow .mr .fix{font-size:13.4px;color:var(--ink-3);margin-top:9px;line-height:1.65}
+  .mrow .mr .fix b{color:var(--teal)}
+
+  /* ---------- 08 时间线 ---------- */
+  .tl{position:relative;margin:22px 0 4px;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl-item{position:relative;padding:0 0 22px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;
+    background:#fff;border:2.5px solid var(--line)}
+  .tl-item.on::before{border-color:var(--brand);background:var(--brand)}
+  .tl-item.mid::before{border-color:var(--gold);background:var(--gold)}
+  .tl-item.now::before{border-color:var(--teal);background:var(--teal)}
+  .tl-y{font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--ink-3)}
+  .tl-item.on .tl-y{color:var(--brand)}
+  .tl-item.mid .tl-y{color:var(--amber)}
+  .tl-item.now .tl-y{color:var(--teal)}
+  .tl-h{font-size:15.5px;font-weight:750;margin:3px 0 5px}
+  .tl-p{font-size:14px;color:var(--ink-2);line-height:1.75}
+  .tl-p blockquote{margin-top:8px;font-size:14px;color:var(--ink);font-weight:500;
+    border-left:3px solid var(--line);padding-left:12px}
+
+  .takeaway{background:#fdf7ef;border:1px solid #ecdcc4;border-radius:16px;padding:24px;margin-top:16px}
+  .takeaway h3{font-size:17px;margin-bottom:10px;color:#7a4e12}
+  .takeaway p{font-size:15px;color:#5c4426;line-height:1.8}
+  .takeaway p+p{margin-top:9px}
+
+  .gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:8px}
+  @media(max-width:700px){.gloss{grid-template-columns:1fr}}
+  .gl{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fbfaf7}
+  .gl b{font-size:13.5px;display:block;margin-bottom:3px}
+  .gl span{font-size:12.8px;color:var(--ink-3);line-height:1.6}
+
+  .foot{text-align:center;color:var(--ink-3);font-size:12.5px;margin-top:56px;line-height:1.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">大道 · 衍生品 · 卖 put</span>
+    <h1>卖 put：<span class="hl">收一笔保费</span>，承诺在你本来就想要的价位买入</h1>
+    <p class="lede">
+      在段永平那儿，卖 put 从来不是一个“期权策略”。它是<b>买入这个动作的一个变体</b>——
+      你本来就打算买这家公司，只是想让“下手”这件事更容易一点、成本更低一点。
+      他做股票的第一笔交易就是卖 put；他把这件事比作<b>开赌场</b>，也比作<b>卖保险</b>；
+      但十几年后他又说：“即使是卖option也应该是不对的”。这一页把这两句话之间的全部逻辑摊开。
+    </p>
+    <p class="src">原文：《段永平投资问答录》第十一章 · 投机、套利、量化与衍生品 ·
+      <a href="https://duan.ayaseeri.com/">duan.ayaseeri.com</a></p>
+  </div>
+
+  <!-- ============ 00 一句话 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">00</span><h2>一句话：它是“买入”的变体，不是“看跌”的赌注</h2><span class="sec-sub">先把名字摆正</span></div>
+    <div class="card">
+      <div class="quote">
+        <p>“我做股票的第一个交易就是卖put。一直不是很明白为什么大多数人搞不懂卖put 和卖covered call(备兑看涨期权)的道理。
+          照说如果明白买股票就是买公司的道理后，应该很容易明白<b>卖put无非就是让你更便宜地买你原来想买的股票的办法而已</b>。”</p>
+        <p class="who">段永平</p>
+      </div>
+      <p class="para">拆成三步，它就是一个很朴素的机器：</p>
+      <div class="steps">
+        <div class="stp">
+          <span class="sn">第一步 · 选</span>
+          <h4>找一家你愿意长期持有、并且看得懂的公司</h4>
+          <p>这一步跟买股票一模一样。看不懂的公司，<b>它的 put 也不能卖</b>。</p>
+        </div>
+        <div class="stp">
+          <span class="sn">第二步 · 定价</span>
+          <h4>定一个“我愿意在这个价格买”的行权价</h4>
+          <p>通常低于现价。这个价格不是猜出来的，是<b>你本来就打算入手的位置</b>。</p>
+        </div>
+        <div class="stp">
+          <span class="sn">第三步 · 收钱</span>
+          <h4>卖出这个 put，先收一笔权利金</h4>
+          <p>这笔钱现在就到手。代价是：如果股价跌破行权价，<b>你必须以行权价接货</b>。</p>
+        </div>
+      </div>
+
+      <div class="branch2">
+        <div class="br up">
+          <span class="bk">结局一 · 到期没跌到</span>
+          <h4>put 作废，权利金全归你</h4>
+          <p>你没有买到股票，但白赚了一笔钱。段永平的算法是：“<b>如果最后买不到股票，年化十几个百分点的收入也还是可以的嘛</b>。”</p>
+        </div>
+        <div class="br dn">
+          <span class="bk">结局二 · 到期跌破了</span>
+          <h4>你以行权价接货，成本被权利金摊低</h4>
+          <p>你在一个自己认可的价格上买到了想买的公司，而且<b>实际成本比行权价还低一截</b>。</p>
+        </div>
+      </div>
+
+      <div class="callout gold">
+        <h5>所以，判断标准不是“看不看好”，而是“愿不愿意在这个价买”</h5>
+        <p>段永平把这一条单独拎出来讲过：“<b>必须是愿意在这个价格买入才可以去卖put。</b>”<br>
+          愿意买 → 卖 put 只是换了个更从容的入场方式；不愿意买 → 那卖 put 就是纯粹在赌它不跌，<b>性质全变了</b>。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 赌客与赌场 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>赌客与赌场：一张桌子上的四个人</h2><span class="sec-sub">“卖是收钱的”</span></div>
+    <div class="card">
+      <p class="para">
+        这段话说清了他为什么对“买”和“卖”给出完全相反的评价。同样是期权，坐到桌子另一侧，性质就反了：
+      </p>
+      <div class="quad">
+        <div class="qc lose">
+          <span class="qk">付钱的一方 · 买</span>
+          <h4>买 call / 买 put</h4>
+          <p>买的是“可能性”。有可能一夜暴富，但是概率上不利于你，而且时间是站在你对面的。</p>
+          <span class="side">时间是你的敌人 · 90% 亏钱</span>
+        </div>
+        <div class="qc win">
+          <span class="qk">收钱的一方 · 卖</span>
+          <h4>卖 covered call / 卖 put</h4>
+          <p>收的是“保费”。不追求一次赚大，追求持续的正现金流；前提是你懂这个标的。</p>
+          <span class="side">时间是你的朋友 · 收钱进场</span>
+        </div>
+      </div>
+
+      <div class="quote">
+        <p>“买option是投机，长期这么做早晚要亏钱。……对某些特定条件下的自己懂的股票卖option（puts或covered calls）
+          实际上<b>相当于开赌场</b>。”</p>
+        <p class="who">2011-04-11</p>
+      </div>
+
+      <div class="quote">
+        <p>“买option是投机行为！我如果买option就是愚蠢！最郁闷的是每次跟别人讲卖option时别人都说我在买，
+          买和卖真的那么难区分吗？<b>有一个简单的区别，卖是收钱的哈。</b>”</p>
+        <p class="who">2011-10-04</p>
+      </div>
+
+      <p class="para">
+        他甚至用赌场的“长线/短线”来对应这两侧——“<b>卖权证的心态是长线，买权证的是短线。就像开赌场的是长线，赌客是短线的意思一样</b>”（2011-04-15）。
+        而保险费的来源，他讲得更直白：
+      </p>
+      <blockquote class="plain">
+        “买短期option的人大概率是在赌，卖的人很可能只是家保险公司而已，也可以说卖的人只是开了家赌场而已。
+        开赌场最重要的是能够靠规矩控制赔率，<b>卖put靠的是对生意的理解</b>（其实也是概率或赢面）。不要想每一把都赢，但不懂的东西一定不要碰。”
+        <span class="who">2026-08-19 · 这是他把比喻和概率连起来的一次</span>
+      </blockquote>
+
+      <div class="callout">
+        <h5>“开赌场”这个比喻里最关键的一句，是最后半句</h5>
+        <p>赌场的优势来自规则设定好的赔率；卖 put 没有这种规则优势，它的“赔率优势”<b>只能来自你对这家生意的理解</b>。
+          段永平说得很清楚：不懂的东西一定不要碰——因为不懂的时候你连赔率都算不出来。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 交易解剖 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>解剖一笔真实的 put</h2><span class="sec-sub">可交互 · 拖股价看三条结局</span></div>
+    <div class="card">
+      <p class="para">
+        用他自己晒过的一笔单子——2026 年 8 月，美光科技（MU）的 put。数据都来自他本人的原话，不是估算：
+      </p>
+
+      <div class="facts">
+        <div class="fx st"><span class="fk">行权价</span><span class="fv"><span id="cStrike">935</span><span class="fu">美元</span></span></div>
+        <div class="fx st"><span class="fk">收权利金</span><span class="fv"><span id="cPrem">97.74</span><span class="fu">/股</span></span></div>
+        <div class="fx be"><span class="fk">盈亏平衡（摊薄成本）</span><span class="fv"><span id="cBE">837.26</span><span class="fu">美元</span></span></div>
+        <div class="fx"><span class="fk">期限 / 收益率</span><span class="fv">11.7<span class="fu">% / 32 天</span></span></div>
+      </div>
+
+      <div class="px-chart">
+        <svg id="payoff" viewBox="0 0 660 280" role="img" aria-label="卖出看跌期权在到期日的盈亏曲线">
+          <g id="pxGrid"></g>
+          <g id="pxFill"></g>
+          <g id="pxMarks"></g>
+          <path id="pxLine" fill="none" stroke="#1a2233" stroke-width="2.4" stroke-linejoin="round"></path>
+          <g id="pxCursor"></g>
+          <g id="pxAxis"></g>
+        </svg>
+        <div class="lg">
+          <span><i style="background:#f6d7d2"></i>盈利区（涨=红）</span>
+          <span><i style="background:#d6e8dc"></i>亏损区（跌=绿）</span>
+          <span><i style="background:#c8963e"></i>行权价</span>
+          <span><i style="background:#8a94a6"></i>盈亏平衡点</span>
+        </div>
+        <div class="cap">
+          纵轴是<b>这张合约到期时每股的盈亏</b>，横轴是到期那天的股价。
+          曲线在行权价以上是一条水平线（涨多少都与你无关），跌破盈亏平衡点后开始向下——
+          <b>这正是卖 put 的全部风险形状：上方封顶，下方开口。</b>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="lb"><span>假设到期那天美光的股价是</span><output id="oPx">935</output></div>
+        <input type="range" id="iPx" min="700" max="1100" step="1" value="935" aria-label="假设到期股价">
+        <div class="ticks"><span>700</span><span>800</span><span>900</span><span>1000</span><span>1100</span></div>
+        <p class="hint">拖动滑块，看这笔单子的结局怎么变。也可以直接拖到两端感受形状。</p>
+      </div>
+
+      <div class="pxbadge a" id="pxBadge">put 作废：权利金全收</div>
+
+      <div class="oc">
+        <div class="occ on" id="ocA">
+          <span class="ok">结局 A · 没跌破</span>
+          <h4>白赚 97.74 / 股</h4>
+          <p>put 到期作废，你什么都没买，但 32 天拿 11.7%。段永平的话是“put expired了我还可以卖下个月的吗？”</p>
+        </div>
+        <div class="occ" id="ocB">
+          <span class="ok">结局 B · 跌破但没亏</span>
+          <h4>以 935 接货，成本摊到 837.26</h4>
+          <p>你按行权价买入，但因为收过权利金，<b>真实成本比当时的市价还低</b>。这笔交易整体不亏。</p>
+        </div>
+        <div class="occ" id="ocC">
+          <span class="ok">结局 C · 跌破盈亏平衡</span>
+          <h4>开始浮亏，问题回到最初</h4>
+          <p>成本 837.26 是固定的，账面亏损随股价下行放大。<b>真正的分界线在这里——你当初的判断对不对。</b></p>
+        </div>
+      </div>
+
+      <div class="eqn">
+        每股盈亏 = <b id="oPnl">+97.74</b> 美元　·　相对保证金的收益率 = <b id="oRet">+11.7%</b>
+        （32 天）<br>
+        <span id="oCalc">股价 935 ≥ 行权价 935 → 权利金 97.74 全额保留；盈亏平衡 935 − 97.74 = 837.26</span>
+      </div>
+
+      <p class="note">
+        他本人的原话是：“<b>用837.26的t-bill卖的这个put，收了97.74. 获利 11.67%/32天，加上利息有12%了。</b>”（2026-08-15）
+        规模是 999 张，一张 100 股，所以权利金合计约 976 万美元。<br>
+        注意这个结构的性质：<b>它看起来像“赚 11.7%”，其实是你同意用 837.26 的价格去买 99,900 股美光。</b>
+        如果它真跌到 700，你账面会亏掉 1,100 多万美元——那 976 万只是这笔生意的入场券，不是收益。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 03 数学等值 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>数学等值：卖 put ≡ 买正股 + 卖 covered call</h2><span class="sec-sub">两条曲线完全重合</span></div>
+    <div class="card">
+      <p class="para">
+        这是段永平反复强调、但最多人转不过弯的一点。他说：“<b>卖put和买股票卖covered call是一样的，数学上没区别</b>”，
+        有人追问“等值是什么意思”，他的回答只有五个字：“<b>就是没区别的意思。</b>”（2020-11-26）
+      </p>
+      <p class="para">
+        下面两张图用的是同一个真实案例——2026 年 8 月他在泡泡玛特上的操作。左边是他本来想做的“卖 put”，
+        右边是他实际做的“买正股 + 卖 call”。两张图的形状必须一模一样：
+      </p>
+
+      <div class="eqv">
+        <div class="eqbox">
+          <span class="ek">A · 卖 put（行权价 162.5，收 7.1）</span>
+          <svg id="eqA" viewBox="0 0 300 170" role="img" aria-label="卖出看跌期权盈亏曲线"></svg>
+          <div class="ef">上限 +7.1　·　平衡点 155.4</div>
+        </div>
+        <div class="eqsign">≡</div>
+        <div class="eqbox">
+          <span class="ek">B · 161 买入正股 + 卖 162.5 call（收约 5.6）</span>
+          <svg id="eqB" viewBox="0 0 300 170" role="img" aria-label="买入正股并卖出备兑看涨期权盈亏曲线"></svg>
+          <div class="ef">上限 +7.1　·　平衡点 155.4</div>
+        </div>
+      </div>
+
+      <div class="eqn">
+        等值条件：<code>卖 put 的权利金 P = 行权价 K − 买入价 S₀ + 卖 call 的权利金 C</code><br>
+        代入他的数字：K=162.5，S₀=161，C≈5.6（他说的“一个月 162.5 的 call 收 3–4 个点”，按 3.5% 折算）<br>
+        → P = 162.5 − 161 + 5.6 ≈ <b>7.1</b>　·　平衡点 = 162.5 − 7.1 = 155.4（= 161 − 5.6，两条路算法一致）
+      </div>
+
+      <p class="note">
+        他为什么要在两者之间来回换？不是偏好问题，是<b>制度约束</b>：港交所对卖 put 的总量有上限（22.5 万张），
+        满了就不能再卖。他 2026-08-06 的原话：“<b>港交所对卖put总量有上限，所以有时候会用 买入正股+卖covered call的办法（数学上是一样的）。</b>”
+        他还顺势解释了被 call 走为什么不算亏：“<b>没call走就算买入成功了，call走了就算保险公司赚钱了。其实被call走和put过期了的价值是一样的。</b>”
+      </p>
+
+      <div class="callout good">
+        <h5>这个等值式实用在哪</h5>
+        <p>它把“卖 put”从一种需要保证金的衍生品，翻译成了<b>一个你完全熟悉的动作</b>：
+          用一个你认可的价格买入一家你想持有的公司，只是这个价格比今天低一点。
+          没有“期权思维”需要学——你已经会的那个动作，就是它。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 反直觉 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>反直觉的一句：为什么“比直接买风险小”</h2><span class="sec-sub">代价放在哪一侧</span></div>
+    <div class="card">
+      <div class="quote">
+        <p>“卖put的最大坏处是可能会失去大涨所带来的利润。<b>最大的好处是卖put比直接买股票的风险小。</b>”</p>
+        <p class="who">2010-05-15 前后的同一段回答</p>
+      </div>
+      <p class="para">
+        这句话单看很奇怪——卖 put 明明上方收益封顶、下方开口，怎么会比直接买股票风险小？关键在<b>同一个价格水平下，你的持仓成本不一样</b>：
+      </p>
+
+      <table class="cmp">
+        <thead><tr><th>同一笔判断</th><th>直接买 935</th><th>卖 935 的 put（收 97.74）</th></tr></thead>
+        <tbody>
+          <tr><th>上行空间</th><td class="a">没有上限</td><td class="b"><span class="lose">封顶 = 权利金</span>（股价涨到 1500 也只赚 97.74）</td></tr>
+          <tr><th>下跌时的持仓成本</th><td class="a">935 / 股，全额承担</td><td class="b"><span class="win">837.26 / 股</span>，比行权价低 10.4%</td></tr>
+          <tr><th>股价不动</th><td class="a">0</td><td class="b"><span class="win">+11.7%（32 天）</span></td></tr>
+          <tr><th>公司归零</th><td class="a">亏光</td><td class="b">同样亏光（再少亏 97.74 / 股）</td></tr>
+          <tr><th>什么时候拿到股票</th><td class="a">立刻</td><td class="b">只有跌破 935 才拿得到</td></tr>
+        </tbody>
+      </table>
+
+      <p class="note">
+        所以“风险小”的准确含义是：<b>你把自己的入场成本往下推了一格</b>，代价是把上方的天花板钉死了。
+        这是一个交换，不是免费的安全垫。段永平自己把这个交换的另一面说得很清楚：
+      </p>
+      <blockquote class="plain">
+        “卖put的缺点是，往往好不容易找到的好公司，因为卖了put而错过买进的机会。”
+        <span class="who">这是他自己列的首要缺点——错过的代价，比权利金大得多</span>
+      </blockquote>
+
+      <div class="callout warn">
+        <h5>最容易搞错的地方：把“成本低”当成“敞口小”</h5>
+        <p>卖 put 的下行敞口和直接持股<b>几乎一样大</b>（少一个权利金的厚度而已）。
+          它“更安全”只是因为成本更低。<b>如果你卖的是自己并不想买的公司的 put，这句话一个字都不成立。</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 温度计 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>保费最厚的时候，恰恰最不该做</h2><span class="sec-sub">可交互 · 点每一档看原文</span></div>
+    <div class="card">
+      <p class="para">
+        权利金是<b>波动的价格</b>——市场越恐慌，保险费越贵。所以“什么时候该卖 put”看起来有个显然的答案：等保费最厚的时候。
+        段永平的答案正好相反。
+      </p>
+
+      <div class="thermo">
+        <div class="th-bar"></div>
+        <div class="th-zones" id="tzones">
+          <button class="tz on" data-z="cheap">
+            <span class="zl">特别便宜</span>
+            <span class="zt">恐慌期 · 保费最厚 · 看着最诱人</span>
+          </button>
+          <button class="tz" data-z="mid">
+            <span class="zl">不高不低</span>
+            <span class="zt">手里正好有闲钱 · 十年后看也不贵</span>
+          </button>
+          <button class="tz" data-z="rich">
+            <span class="zl">已经很贵 / 看不懂</span>
+            <span class="zt">保费再厚也轮不到你</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="tdet" id="tdet">
+        <div class="tk" id="tTag">第一档 · 特别便宜（恐慌期）</div>
+        <h4 id="tHead">别卖 put —— 这时候要贪心</h4>
+        <blockquote id="tBody">“<b>特别便宜的时候最好别卖put。因为很可能赚了一点蝇头小利而失去大机会的。</b>”（2023-03-18）</blockquote>
+        <div class="tn" id="tNote">“恐慌时往往有便宜的股票，不是很适合卖put。”（2010-08-12）<br>
+          “去年3月份这种机会出现时最好就不要卖put，那种时候一定要贪心，过于保守会浪费机会。”</div>
+        <div class="tt" id="tTake">保费之所以变厚，正是因为股票变便宜了。你为了赚那 11% 的权利金，
+          却把<b>直接买入的机会让掉了</b>——这是典型的捡小钱丢大钱。</div>
+      </div>
+
+      <p class="note">
+        这一条背后其实是一个<b>三选一的排序</b>，段永平自己排过：“<b>只有当有多余现金时才会考虑买入，等待或卖put这三个选项，其中等待最难。</b>”
+        （2020-11-26）越是便宜的时候，这三者的顺序就越重要——因为“等待”的机会成本在那时候最高。
+      </p>
+
+      <div class="callout gold">
+        <h5>还有一次是他自己的失误记录</h5>
+        <p>2022 年他本已计划大举买入拼多多和腾讯，结果因为判断“市场还会低迷一段时间”，改成了多卖 put 来降低成本。
+          事后的自我评价是：“<b>我总是说，任何的考虑市场都很可能是错的，现在就是个具体的例子。</b>”
+          这笔账记在他的“宏观判断”那一栏，而不是 put 那一栏——但正好说明了什么时候不该卖 put。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 铁律 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><h2>四条铁律，和一个反面案例</h2><span class="sec-sub">他自己划的边界</span></div>
+    <div class="card">
+      <div class="rules">
+        <div class="rl">
+          <span class="rk">铁律一 · 只卖看得懂的</span>
+          <h4>“不是谁的put 都可以卖的。我主要只是卖苹果的put。”</h4>
+          <blockquote>“option一定是建立在对基本面的理解上。非价值投资的人做option多数都会反着做，最后大多都会很难看。”（2011-04-09）</blockquote>
+        </div>
+        <div class="rl">
+          <span class="rk">铁律二 · 必须是真金白银的现金</span>
+          <h4>不能靠 margin 卖 put</h4>
+          <blockquote>“你要没有现金在就等于在用margin……不是很推荐你卖puts。”<br>
+            “使用option时最重要的就是不要为option而option……还有就是<b>不要用margin做option</b>。”（2011-10-04）</blockquote>
+        </div>
+        <div class="rl">
+          <span class="rk">铁律三 · 必须是愿意在这个价买</span>
+          <h4>“愿意”是定量标准，不是心情</h4>
+          <blockquote>“必须是愿意在这个价格买入才可以去卖put。”（2026-07-24）<br>
+            判断的依据是“十年后看这个价钱也不贵”，不是“它应该不会再跌了”。</blockquote>
+        </div>
+        <div class="rl">
+          <span class="rk">铁律四 · 用闲钱，量力而行</span>
+          <h4>它不是必须做的动作</h4>
+          <blockquote>“卖put也不需要‘大量’的资金，钱多多做些，没钱就不做，和别的一样。”（2011-07-16）</blockquote>
+        </div>
+      </div>
+
+      <div class="callout warn" style="margin-top:18px">
+        <h5>反面案例：他的第一笔 put，亏了</h5>
+        <p>“跟绝大多数人不一样的是，我在美股或者任何股市的第一个交易就是卖了一个put。我记得是卖了 Jupiter 的put，
+          <b>结果还亏钱了，因为没看懂这家公司。</b>”（2026-08-14）<br>
+          注意归因：亏钱的原因不是“卖 put 这个动作错了”，而是<b>跳过了第一条铁律</b>。工具没问题，前提没满足。</p>
+      </div>
+
+      <p class="note">
+        另外还有一层现实约束——<b>规模和上限</b>。他 2026 年在泡泡玛特上把卖 put 的额度打满了：
+        “我的卖put的上限是225000张，已经满了。”而且港股的期权一张对应 200 股而非 100 股，他自己也是被网友提醒才知道：
+        “确实是的，一直没注意到这个。还好卖的是put，不然就麻烦了。”<br>
+        这句话反过来解释了为什么他反复强调 <b>covered</b>——如果真的接了货又多算了一倍股数，是现金不够；
+        但如果卖的是 naked call，那就是不可控的方向性风险了。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 07 误解 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">07</span><h2>四个最常见的误解</h2><span class="sec-sub">每条都配他自己的原话</span></div>
+    <div class="card">
+      <div class="mis">
+        <div class="mrow">
+          <div class="ml"><span class="mt">误解 01</span><h4>“卖 put 就是做空 / short put”</h4></div>
+          <div class="mr">
+            <blockquote>“另外，short put的说法骨子里是不对的，因为<b>卖put其实是long</b>。不懂不要乱用术语哈。”（2011-04-11）</blockquote>
+            <p class="fix"><b>纠正：</b>卖 put 持有的是多头立场——你赌的是它不跌、或者跌了你也愿意接。它和做空在方向上正好相反。</p>
+          </div>
+        </div>
+        <div class="mrow">
+          <div class="ml"><span class="mt">误解 02</span><h4>“它跟卖保险完全一样”</h4></div>
+          <div class="mr">
+            <blockquote>“我也一直用卖保险来比喻。但两者最本质的差别其实是<b>保险的费率大概是可以算出来的，put不能</b>。
+              卖put实际上就是为自己不拥有的东西投保。我只为自己想拥有的股票投保。”</blockquote>
+            <p class="fix"><b>纠正：</b>比喻只对了一半。保险是精算定价，put 不是——所以这里的“费率”只能靠你对生意的判断来定，<b>这一步没有公式可以替代</b>。</p>
+          </div>
+        </div>
+        <div class="mrow">
+          <div class="ml"><span class="mt">误解 03</span><h4>“它是稳定收 premium 的现金流机器”</h4></div>
+          <div class="mr">
+            <blockquote>“做option最关键的是，长期看这个交易是不是对的！……<b>不能以premium高低来决定可不可以做。</b>”（2026-08-06）</blockquote>
+            <p class="fix"><b>纠正：</b>premium 是结果，不是理由。他评价这个工具的实际好处时说得很克制：“能不能增厚利润不是很确定，但<b>下手难度减少了不少</b>，内心没那么折腾，受市场影响会降低一些。”（2023-09-29）</p>
+          </div>
+        </div>
+        <div class="mrow">
+          <div class="ml"><span class="mt">误解 04</span><h4>“买 put 的人都在看空”</h4></div>
+          <div class="mr">
+            <blockquote>“瞎激动啥？<b>买put的很多都是多头，他们买个保险而已。</b>这次买股票同时买put的人大概是赚的吧。”（2026-04-15）</blockquote>
+            <p class="fix"><b>纠正：</b>对手盘不一定是赌徒。很多时候对面是个持股的人在对冲——<b>这恰恰说明你在给别人的风险定价，而不是在跟人赌方向</b>。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 终局 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">08</span><h2>终局：他自己后来改口了</h2><span class="sec-sub">这是全页最该读的一段</span></div>
+    <div class="card">
+      <p class="para">
+        前面所有内容如果只听一半，会得出“卖 put 是个好工具”的结论。但段永平在 2018 年给过一个相反的答案，
+        而且他此后的行为并没有推翻它——他只是一直在做那件“更简单的事”的同时，顺手收点保费。
+      </p>
+
+      <div class="tl">
+        <div class="tl-item on">
+          <span class="tl-y">2010-05</span>
+          <div class="tl-h">第一次把它定性为价值投资的一种形式</div>
+          <div class="tl-p">“我投资的第一个交易就是卖了一个put，觉得很舒服。当然卖put的前提和买股票是一样的，你一定要很了解你的投资标的。”</div>
+        </div>
+        <div class="tl-item mid">
+          <span class="tl-y">2011-04 → 07</span>
+          <div class="tl-h">磨出“开赌场”“卖保险”两个比喻</div>
+          <div class="tl-p">“从本质上来讲，卖option就是在赚投机者的钱，实际上是在和投机者对赌。”</div>
+        </div>
+        <div class="tl-item on">
+          <span class="tl-y">2018-10-02</span>
+          <div class="tl-h">转折点：他开始认为这件事本身就不该做</div>
+          <div class="tl-p">
+            “现在的段永平认为即使<b>是卖option也应该是不对的</b>，因为好不容易找到的好公司很可能会因为卖option把机会错失了。
+            最简单的办法其实就是找到好公司，在合适的价钱买下拿着。”
+          </div>
+        </div>
+        <div class="tl-item mid">
+          <span class="tl-y">2019-11-18</span>
+          <div class="tl-h">他对普通人的直接建议</div>
+          <div class="tl-p">“<b>我不建议卖option！</b>找个好公司不容易。不要为了那一点点premium失去拥有好公司的机会。”</div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-y">2022 → 2023</span>
+          <div class="tl-h">但自己继续用，并划出使用条件</div>
+          <div class="tl-p">
+            “卖put看着好玩，但背后的逻辑还是严密的。首先，从十年的角度看，170美元的苹果其实不贵（功夫全在这里），然后就好玩了。”（2022-01-08）<br>
+            “我卖put 的情况多是自己喜欢的公司的价钱在不高不低的区间，手里又正好有点闲钱……赚个年化十来个百分比的回报。”（2023-03-18）
+          </div>
+        </div>
+        <div class="tl-item now">
+          <span class="tl-y">2026</span>
+          <div class="tl-h">“苹果的绝大部分都是 put 进来的”</div>
+          <div class="tl-p">
+            “我的苹果绝大部分都是put进来的，至少90%以上吧。”（2026-04-14）<br>
+            “从一开始我就说过了，<b>泡泡玛特保险公司开张了</b>。很多人看不懂这句话！”（2026-08-05）
+          </div>
+        </div>
+      </div>
+
+      <div class="quote">
+        <p>“我投资的利润在普通年景里有很大一部分就是来自于options（卖covered calls和puts）。”</p>
+        <p class="who">2011-01-21 · 这是他给出的最大方的口子</p>
+      </div>
+
+      <div class="takeaway">
+        <h3>怎么把这两句话同时装进脑子</h3>
+        <p><b>他不是在说“这个方法好”，而是在说“这个方法让‘买入’这个动作变得容易下手”。</b>
+          他管的钱量大、好公司又常年在不便宜的位置，直接下单心理阻力很大；卖个 put 既能收钱，又给了自己一个更低的入场价。
+          所以他把这件事归到“下手难度”而不是“收益增强”上——原话是“能不能增厚利润不是很确定，但下手难度减少了不少”。</p>
+        <p>但他给出的最终答案仍然是那句最朴素的：<b>找到好公司，在合适的价钱买下拿着。</b>
+          卖 put 的全部合法性都依附在这句话上——它只在“你本来就打算买”的前提下成立。
+          一旦你开始为了权利金去找标的，它就从“买入的变体”退回了“赌场里的另一张桌子”，
+          而他 2018 年那句“也应该是不对的”，针对的正是后一种。</p>
+      </div>
+
+      <p class="note" style="margin-top:20px">
+        顺带一个参照：他讲巴菲特的做法时，重点也在“这是投资不是投机”——“老巴的‘衍生品投机’实际上就是卖了个指数的长期的put，
+        还不用交押金的。我认为那是投资，相对于卖保险。买put的人才是投机，也可以说是买保险。”（2011-11-09）
+        差别在于老巴卖的是 15–20 年期的标普 put，且不受市场短期波动影响——<b>期限越长、越不需要盯盘，越接近“生意”而不是“交易”</b>。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 术语 ============ -->
+  <section>
+    <div class="sec-head"><span class="sec-num">09</span><h2>一页术语表</h2><span class="sec-sub">读原话时会用到</span></div>
+    <div class="card">
+      <div class="gloss">
+        <div class="gl"><b>put（看跌期权 / 认沽期权）</b><span>持有人有权在到期日以行权价<b>卖出</b>标的。卖 put 的人就是承诺<b>买入</b>的那一方。</span></div>
+        <div class="gl"><b>call（看涨期权 / 认购期权）</b><span>持有人有权以行权价<b>买入</b>标的。卖 call 的人承诺在行权价卖出。</span></div>
+        <div class="gl"><b>权利金 / premium</b><span>买方付、卖方收的那笔钱。段永平强调的判断口诀：“<b>卖是收钱的。</b>”</span></div>
+        <div class="gl"><b>行权价 / strike</b><span>约定的买卖价格。卖 put 时，这就是你“愿意买入”的价格。</span></div>
+        <div class="gl"><b>covered</b><span>卖 call 时手里有股票、卖 put 时账上有足额现金。<b>没有这层覆盖就是 naked，直接违背他的原则。</b></span></div>
+        <div class="gl"><b>被 put 进来 / 被 call 走</b><span>到期真的被行权、按约定价格接到货或交出股票。他的原话：“其实被call走和put过期了的价值是一样的。”</span></div>
+      </div>
+      <p class="note">
+        这份解释只梳理段永平关于卖 put 的原话与逻辑，不构成任何投资建议。
+        期权交易的杠杆与保证金机制可能造成超出本金的损失，具体规则以你所在市场与券商为准。
+      </p>
+    </div>
+  </section>
+
+  <div class="foot">
+    原文整理自《段永平投资问答录》第十一章「投机、套利、量化与衍生品」<br>
+    所有引文保留原始日期与措辞，未作改写
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ============================================================
+     02 · 单笔 put 的盈亏解剖（美光 MU，2026-08）
+     所有案例数字集中在这里，是唯一来源
+     ============================================================ */
+  var CASE = {
+    strike: 935,        // 行权价
+    premium: 97.74,     // 每股权利金
+    days: 32,
+    contracts: 999,
+    perContract: 100
+  };
+  CASE.be = CASE.strike - CASE.premium;   // 837.26 盈亏平衡（摊薄成本）
+
+  // 静态文本与计算共用同一组数字
+  $('cStrike').textContent = CASE.strike;
+  $('cPrem').textContent = CASE.premium.toFixed(2);
+  $('cBE').textContent = CASE.be.toFixed(2);
+
+  var DOM_LO = 700, DOM_HI = 1100;
+  var Y_LO = -260, Y_HI = 130;
+  var W = 660, H = 280, PL = 54, PR = 18, PT = 20, PB = 36;
+  var pw = W - PL - PR, ph = H - PT - PB;
+
+  function xOf(s){ return PL + (s - DOM_LO) / (DOM_HI - DOM_LO) * pw; }
+  function yOf(v){ return PT + (Y_HI - v) / (Y_HI - Y_LO) * ph; }
+  // 卖 put 到期盈亏：股价 >= 行权价 得权利金，否则线性向下
+  function pnlAt(s){ return s >= CASE.strike ? CASE.premium : s - CASE.be; }
+  function retAt(s){ return pnlAt(s) / CASE.be * 100; }
+
+  var NS = 'http://www.w3.org/2000/svg';
+  function mk(tag, attrs, parent){
+    var el = document.createElementNS(NS, tag);
+    for (var k in attrs){ el.setAttribute(k, attrs[k]); }
+    if (parent) parent.appendChild(el);
+    return el;
+  }
+
+  // ---- 网格 + 坐标轴 ----
+  (function drawGrid(){
+    var g = $('pxGrid'), ax = $('pxAxis');
+    [100, 0, -100, -200].forEach(function(v){
+      var y = yOf(v);
+      mk('line', {x1:PL, y1:y, x2:W-PR, y2:y, stroke:'#e6e1d8', 'stroke-width': v===0 ? 1.4 : 1,
+        'stroke-dasharray': v===0 ? 'none' : '3 4'}, g);
+      mk('text', {x:PL-9, y:y+4, 'text-anchor':'end', 'font-size':13, fill:'#8a94a6'}, g).textContent =
+        (v>0?'+':'') + v;
+    });
+    [700, 800, 900, 1000, 1100].forEach(function(s){
+      var x = xOf(s);
+      mk('line', {x1:x, y1:PT, x2:x, y2:H-PB, stroke:'#efeae1', 'stroke-width':1}, g);
+      mk('text', {x:x, y:H-PB+19, 'text-anchor':'middle', 'font-size':13, fill:'#8a94a6'}, ax).textContent = s;
+    });
+    mk('text', {x:PL-9, y:PT-6, 'text-anchor':'end', 'font-size':12, fill:'#8a94a6'}, ax).textContent = '盈亏/股';
+    mk('text', {x:W-PR, y:H-PB+35, 'text-anchor':'end', 'font-size':12, fill:'#8a94a6'}, ax).textContent = '到期股价（美元）';
+  })();
+
+  // ---- 曲线上方/下方的盈利区与亏损区 ----
+  (function drawFill(){
+    var g = $('pxFill');
+    // 盈利区：从盈亏平衡点到右端，曲线与零轴之间（红=盈）
+    var profit = [
+      [CASE.be, 0], [CASE.strike, CASE.premium], [DOM_HI, CASE.premium], [DOM_HI, 0]
+    ].map(function(p){ return xOf(p[0]) + ',' + yOf(p[1]); }).join(' ');
+    mk('polygon', {points: profit, fill:'#f6d7d2', opacity:.75}, g);
+    // 亏损区：从 700 到盈亏平衡点（绿=亏）
+    var loss = [
+      [DOM_LO, 0], [DOM_LO, pnlAt(DOM_LO)], [CASE.be, 0]
+    ].map(function(p){ return xOf(p[0]) + ',' + yOf(p[1]); }).join(' ');
+    mk('polygon', {points: loss, fill:'#d6e8dc', opacity:.75}, g);
+  })();
+
+  // ---- 行权价 / 盈亏平衡 标记 ----
+  (function drawMarks(){
+    var g = $('pxMarks');
+    var xK = xOf(CASE.strike);
+    mk('line', {x1:xK, y1:PT, x2:xK, y2:H-PB, stroke:'#c8963e', 'stroke-width':1.6}, g);
+    mk('text', {x:xK, y:PT+13, 'text-anchor':'middle', 'font-size':13, 'font-weight':700, fill:'#8a6413',
+      stroke:'#ffffff', 'stroke-width':4, 'paint-order':'stroke'}, g)
+      .textContent = '行权价 ' + CASE.strike;
+    var xB = xOf(CASE.be);
+    mk('line', {x1:xB, y1:PT, x2:xB, y2:H-PB, stroke:'#8a94a6', 'stroke-width':1.4,
+      'stroke-dasharray':'5 4'}, g);
+    mk('text', {x:xB+7, y:H-PB-8, 'font-size':12, 'font-weight':700, fill:'#4a5568',
+      stroke:'#ffffff', 'stroke-width':4, 'paint-order':'stroke'}, g)
+      .textContent = '平衡 ' + CASE.be.toFixed(2);
+  })();
+
+  // ---- 曲线 ----
+  $('pxLine').setAttribute('d',
+    'M' + xOf(DOM_LO) + ',' + yOf(pnlAt(DOM_LO)) +
+    ' L' + xOf(CASE.strike) + ',' + yOf(CASE.premium) +
+    ' L' + xOf(DOM_HI) + ',' + yOf(CASE.premium));
+
+  // ---- 游标 ----
+  var cursor = $('pxCursor');
+  var cLine = mk('line', {y1:PT, y2:H-PB, stroke:'#b3562e', 'stroke-width':1.4, 'stroke-dasharray':'4 3'}, cursor);
+  var cDot  = mk('circle', {r:5.5, fill:'#fff', stroke:'#b3562e', 'stroke-width':2.6}, cursor);
+  var cTag  = mk('text', {'font-size':14, 'font-weight':800, fill:'#b3562e',
+    stroke:'#ffffff', 'stroke-width':4.5, 'paint-order':'stroke'}, cursor);
+
+  function fmtUsd(v){
+    if (Math.abs(v) < 0.005) return '0.00';
+    return (v > 0 ? '+' : '') + v.toFixed(2);
+  }
+  function fmtPct(v){
+    if (Math.abs(v) < 0.05) return '0.0%';
+    return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+  }
+
+  function render(s){
+    var pnl = pnlAt(s), ret = retAt(s);
+    var x = xOf(s), y = yOf(pnl);
+
+    cLine.setAttribute('x1', x); cLine.setAttribute('x2', x);
+    cDot.setAttribute('cx', x);  cDot.setAttribute('cy', y);
+    // 游标读数：靠近顶部时改标在点下方，避开“行权价”标签与网格标题
+    var ty = (y - PT < 34) ? y + 27 : y - 12;
+    cTag.setAttribute('x', x);
+    cTag.setAttribute('y', ty);
+    cTag.setAttribute('text-anchor', x > W - 120 ? 'end' : (x < PL + 40 ? 'start' : 'middle'));
+    cTag.textContent = fmtUsd(pnl);
+
+    $('oPx').textContent = s;
+    $('oPnl').textContent = fmtUsd(pnl) + ' 美元';
+    $('oRet').textContent = fmtPct(ret);
+
+    var badge = $('pxBadge'), cls, txt, calc;
+    var state;
+    if (s >= CASE.strike){
+      state = 'A'; cls = 'a'; txt = 'put 作废：权利金全收';
+      calc = '股价 ' + s + ' ≥ 行权价 ' + CASE.strike + ' → 权利金 ' + CASE.premium.toFixed(2) +
+             ' 全额保留；盈亏平衡 ' + CASE.strike + ' − ' + CASE.premium.toFixed(2) + ' = ' + CASE.be.toFixed(2);
+    } else if (s >= CASE.be){
+      state = 'B'; cls = 'b'; txt = '被行权，但这笔交易不亏';
+      calc = '股价 ' + s + ' 落在 [' + CASE.be.toFixed(2) + ', ' + CASE.strike + ') → 按 ' + CASE.strike +
+             ' 接货，成本被摊到 ' + CASE.be.toFixed(2) + '；每股仍' + (pnl > 0 ? '赚 ' + pnl.toFixed(2) : '持平');
+    } else {
+      state = 'C'; cls = 'c'; txt = '被行权，且开始浮亏';
+      calc = CASE.be.toFixed(2) + ' − ' + s + ' = 每股浮亏 ' + Math.abs(pnl).toFixed(2) +
+             '；成本 ' + CASE.be.toFixed(2) + ' 是固定的，向下没有底';
+    }
+    badge.className = 'pxbadge ' + cls;
+    badge.textContent = txt;
+    $('oCalc').textContent = calc;
+
+    ['A','B','C'].forEach(function(k){
+      var el = $('oc' + k);
+      if (el) el.className = (k === state) ? 'occ on' : 'occ';
+    });
+  }
+
+  var ipx = $('iPx');
+  ipx.addEventListener('input', function(){ render(Number(ipx.value)); });
+  render(Number(ipx.value));
+
+  /* ============================================================
+     03 · 等值：卖 put  ≡  买正股 + 卖 covered call
+     两条曲线由同一组常数推出，并且互为镜像验证
+     ============================================================ */
+  var EQ = { K: 162.5, S0: 161, C: 161 * 0.035 };   // S0=161，卖 call 收 3.5 个点
+  EQ.P = EQ.K - EQ.S0 + EQ.C;                        // 等值 put 的权利金 ≈ 7.1
+
+  function eqPnlSellPut(s){ return (s >= EQ.K) ? EQ.P : s - (EQ.K - EQ.P); }
+  function eqPnlBuyCall(s){ return (s - EQ.S0) + EQ.C - Math.max(0, s - EQ.K); }
+
+  // 自我校验：全区间逐点比对，两条路必须完全一致
+  window.__EQ_MAXDEV = 0;
+  for (var t = 40; t <= 240; t += 0.25){
+    var d = Math.abs(eqPnlSellPut(t) - eqPnlBuyCall(t));
+    if (d > window.__EQ_MAXDEV) window.__EQ_MAXDEV = d;
+  }
+
+  function drawEq(svgId, fn, color){
+    var svg = $(svgId);
+    var lo = 100, hi = 210, vlo = -40, vhi = 30;
+    var w = 300, h = 170, pl = 34, pr = 10, pt = 14, pb = 26;
+    var iw = w - pl - pr, ih = h - pt - pb;
+    var X = function(s){ return pl + (s - lo) / (hi - lo) * iw; };
+    var Y = function(v){ return pt + (vhi - v) / (vhi - vlo) * ih; };
+    var zero = Y(0);
+    mk('line', {x1:pl, y1:zero, x2:w-pr, y2:zero, stroke:'#cfc8bc', 'stroke-width':1.2}, svg);
+    mk('text', {x:pl-6, y:zero+4, 'text-anchor':'end', 'font-size':10, fill:'#8a94a6'}, svg).textContent = '0';
+    var pts = [], step = (hi - lo) / 120;
+    for (var s = lo; s <= hi + 1e-9; s += step){
+      pts.push(X(s).toFixed(1) + ',' + Y(fn(s)).toFixed(1));
+    }
+    // 盈利/亏损色块
+    var g = mk('g', {}, svg);
+    mk('polygon', {points: pts.join(' '), fill:color, opacity:.14}, g);
+    mk('polyline', {points: pts.join(' '), fill:'none', stroke:color, 'stroke-width':2.2,
+      'stroke-linejoin':'round'}, g);
+    // 行权价标记
+    mk('line', {x1:X(EQ.K), y1:pt, x2:X(EQ.K), y2:h-pb, stroke:'#c8963e', 'stroke-width':1.3,
+      'stroke-dasharray':'4 3'}, svg);
+    mk('text', {x:X(EQ.K), y:h-pb+16, 'text-anchor':'middle', 'font-size':11, 'font-weight':700, fill:'#8a6413'}, svg)
+      .textContent = 'K ' + EQ.K;
+    mk('text', {x:pl+2, y:pt+9, 'text-anchor':'start', 'font-size':10, fill:'#b3b9c4'}, svg)
+      .textContent = '盈亏';
+  }
+  drawEq('eqA', eqPnlSellPut, '#a83228');
+  drawEq('eqB', eqPnlBuyCall, '#2f6b5f');
+
+  /* ============================================================
+     05 · 估值温度计
+     ============================================================ */
+  var ZONES = {
+    cheap: {
+      tag: '第一档 · 特别便宜（恐慌期）',
+      head: '别卖 put —— 这时候要贪心',
+      body: '“<b>特别便宜的时候最好别卖put。因为很可能赚了一点蝇头小利而失去大机会的。</b>”（2023-03-18）',
+      note: '“恐慌时往往有便宜的股票，不是很适合卖put。”（2010-08-12）<br>' +
+            '“去年3月份这种机会出现时最好就不要卖put，那种时候一定要贪心，过于保守会浪费机会。”',
+      take: '保费之所以变厚，正是因为股票变便宜了。你为了赚那 11% 的权利金，却把<b>直接买入的机会让掉了</b>——' +
+            '这是典型的捡小钱丢大钱。'
+    },
+    mid: {
+      tag: '第二档 · 不高不低 + 手里有闲钱',
+      head: '这才是卖 put 的窗口',
+      body: '“我卖put 的情况多是自己喜欢的公司的价钱在不高不低的区间，手里又正好有点闲钱。想着10年后这个价钱也不贵，' +
+            '闲着也是闲着，于是就卖个put，赚个年化十来个百分比的回报。”（2023-03-18）',
+      note: '“从十年的角度看，170美元的苹果其实不贵（<b>功夫全在这里</b>），然后就好玩了。”（2022-01-08）<br>' +
+            '“一般至少能满足年化15%以上我才会动手，不然就只好闲着，哪怕只是拿着T-Bill也没办法。T-Bill毕竟是无风险的。”（2024-10-26）',
+      take: '注意条件里的两个“正好”：<b>价钱不高不低，手上正好有闲钱</b>。缺任何一个，这个动作都不成立——' +
+            '价格特别便宜时你去卖 put，就是在放弃更好的选项。'
+    },
+    rich: {
+      tag: '第三档 · 已经很贵，或者你根本看不懂',
+      head: '等待，或者干脆不做',
+      body: '“只有当有多余现金时才会考虑买入，等待或卖put这三个选项，<b>其中等待最难</b>。”（2020-11-26）',
+      note: '“做option最关键的是，长期看这个交易是不是对的！……<b>不能以premium高低来决定可不可以做。</b>”（2026-08-06）<br>' +
+            '“不要想每一把都赢，但不懂的东西一定不要碰。”（2026-08-19）',
+      take: '贵的时候保费往往也厚（波动大），但这时候卖 put 就是在<b>用不便宜的价格买入</b>。' +
+            '他的原话是“必须是愿意在这个价格买入才可以去卖put”——贵，就不愿意。'
+    }
+  };
+
+  function showZone(key){
+    var z = ZONES[key];
+    if (!z) return;
+    $('tTag').textContent = z.tag;
+    $('tHead').textContent = z.head;
+    $('tBody').innerHTML = z.body;
+    $('tNote').innerHTML = z.note;
+    $('tTake').innerHTML = z.take;
+    var bs = document.querySelectorAll('#tzones .tz');
+    for (var i = 0; i < bs.length; i++){
+      bs[i].className = (bs[i].getAttribute('data-z') === key) ? 'tz on' : 'tz';
+    }
+  }
+
+  var zbtns = document.querySelectorAll('#tzones .tz');
+  for (var j = 0; j < zbtns.length; j++){
+    (function(b){
+      b.addEventListener('click', function(){ showZone(b.getAttribute('data-z')); });
+    })(zbtns[j]);
+  }
+  showZone('cheap');
+})();
+</script>
+</body>
+</html>
